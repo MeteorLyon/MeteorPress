@@ -1,0 +1,509 @@
+/*******************************************************
+ *
+ * Site-wide Styles
+ *
+ * ****************************************************/
+
+/* Tags */
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+h4 {
+    text-align: center;
+}
+
+h5 {
+    text-align: center;
+}
+
+h6 {
+    text-align: center;
+}
+
+
+/* Classes */
+.bold {
+    font-weight: bold;
+}
+
+.card {
+    background-color: #eee;
+    border-top: 2px solid #ddd;
+    border-left: 1px solid #ddd;
+    box-shadow: 1px 1px 1px black;
+    padding: 1.1em 1em .75em 1em;
+    position: relative;
+    margin: 1.5em auto 1em auto;
+    opacity: 1;
+    width: 90%;
+    z-index: 1;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.mp-pe-audio {
+    vertical-align: middle;
+}
+
+.row {
+}
+
+.top-margin-5 {
+    margin-top: 5em;
+}
+
+.text-left {
+    text-align: left;;
+}
+
+.float-left {
+    float: left;
+    position: relative;
+}
+
+.float-right {
+    float: right;
+    position: relative;
+}
+
+.list-inline li {
+    display: inline-block;
+}
+
+.width-10-em {
+    max-width: 10em;
+}
+
+.width-12-em {
+    max-width: 12em;
+}
+
+.width-15-em {
+    max-width: 15em;
+}
+
+.width-18-em {
+    max-width: 18em;
+}
+
+.vert-center {
+    background-color: white;
+    border-radius: 1em;
+    color: black;
+    margin: 1em auto;
+    max-width: 30em;
+    padding: 1em 2em;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btn-social-login {
+    width: 15em;
+}
+
+.mp-last-modified-by {
+    display: block;
+    padding-left: 2em;
+}
+
+.mp-root-sub, 
+.mp-submenu {
+    display: none;
+}
+
+.hide {
+    display: none;
+}
+
+.mp-admin-roles-form-container {
+    display: none;
+}
+
+.mp-lightbox {
+    background-color: black;
+    color: white;
+    display: none;
+    height: 100%;
+    left: 0px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 99;
+}
+
+p::first-letter {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.bg-white {
+    background-color: white;
+    opacity: 100%;
+}
+ 
+.z0 {
+    /* x/y/blur/spread/color/[inset|outset] */
+    box-shadow: 0px 0px 0px black;
+    z-index: 0;
+}
+ 
+.z1 {
+    /* x/y/blur/spread/color/[inset|outset] */
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    box-shadow: 1px 1px 1px black;
+    z-index: 1;
+}
+ 
+.z2 {
+    box-shadow: 3px 3px 3px black;
+    z-index: 2;
+}
+.z3 {
+    box-shadow: 6px 6px 8px black;
+    z-index: 3;
+}
+.z4 {
+    box-shadow: 9px 9px 12px black;
+    z-index: 4;
+}
+.z5 {
+    box-shadow: 12px 12px 16px black;
+    z-index: 5;
+}
+.z6 {
+    box-shadow: 15px 15px 20px black;
+    z-index: 6;
+}
+.z7 {
+    box-shadow: 7 7 7 7 black;
+    z-index: 7;
+}
+ 
+.z99 {
+    z-index: 99;
+}
+ 
+/*******************************************************
+ *
+ * Template Styles
+ *
+ * ****************************************************/
+
+#mp-site-content {
+    border-radius: 0px;
+    text-align: left;
+}
+
+#mp-site-content .btn {
+    border-radius: 0px;
+}
+
+@-moz-document url-prefix() {
+    fieldset { display: table-cell; }
+}
+
+.invisible {
+    opacity: 0;
+}
+
+.mp-admin-page-card .row {
+    margin-bottom: 1.2em;
+}
+
+#mp-admin-user-table th,
+#mp-admin-user-table td {
+    vertical-align: top;
+}
+
+#mp-tabs {
+    box-shadow: 12px 12px 16px black;
+    opacity: .80;
+    position: fixed;
+    top: 0px;
+    z-index: 98;
+}
+
+#mp-tabs .glyphicon {
+    box-shadow: 1px 1px 2px black;
+    padding: .3em .3em;
+}
+
+.mp-navigation-tabs-left {
+    left: 0px;
+}
+
+.mp-navigation-tabs-right {
+    right: 0px;
+}
+
+#mp-tabs span {
+    margin: 0px 0px;
+}
+
+.mp-page-editor-tab .fa {
+    line-height: .9;
+}
+
+#mp-admin-page-card-template input {
+    width: 13em;
+}
+
+#mp-pe-navigation-title,
+#mp-pe-navigation-slug,
+#mp-pe-tweet-image {
+    width: 18em;
+}
+
+#mp-admin-roles table {
+    text-align: center;
+}
+
+#mp-admin-roles table button {
+    margin: .5em .75em;
+}
+
+#mp-admin-roles-quick-add {
+    text-align: center;
+}
+
+#mp-admin-roles-editor dd {
+    border: 1px solid #ddd;
+}
+
+#mp-admin-roles dt {
+    opacity: .99;
+}
+
+#mp-admin-roles dd {
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    position: relative;
+    margin: .5em auto;
+    opacity: 1;
+    width: 90%;
+}
+
+#mp-admin-roles .fa {
+    margin: 0px auto;
+    padding: .25em .25em;
+}
+
+.mp-toggle-perm {
+    margin: .5em .75em;
+}
+
+button .fa {
+    margin: auto auto;
+    padding: .2em .2em;
+}
+
+#mp-trigger-logo {
+}
+
+#mp-trigger-nav {
+}
+
+#mp-auth-icons li {
+    margin: 0px 1em;
+}
+
+#mp-auth-icons img {
+    padding-bottom: 27px;
+}
+
+#mp-loading-full-screen {
+    background-color: black;
+    color: white;
+    display: none;
+    height: 100%;
+    left: 0px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 100;
+}
+
+#mp-nav-nav {
+    border-bottom: 1px solid #555;
+    padding: 0px 0px;
+    margin: .2em auto .4em auto;
+}
+
+#mp-nav-nav a {
+    color: #ddd;
+}
+
+#mp-nav-home {
+    float: left;
+    padding: .2em .4em;
+    text-align: right;
+}
+
+#mp-nav-close {
+    float: right;
+    padding: .2em .4em;
+    text-align: right;
+}
+
+#mp-messages {
+    display: none;
+}
+
+#mp-navigation-container {
+    background-color: black;
+    color: white;
+    display: none;
+    height: 100%;
+    opacity: .85;
+    padding: .7em .3em;
+    position: fixed;
+    top: 0px; 
+    width: 15em;
+    z-index: 99;
+}
+.mp-navigation-container-left {
+    left: 0px;
+}
+.mp-navigation-container-right {
+    right: 0px;
+}
+#mp-navigation-closer {
+    background-color: black;
+    background-image: url('/meteorpress.png');
+    background-repeat: no-repeat;
+    display: none;
+    height: 100%;
+    opacity: .3;
+    position: fixed;
+    top: 0px;
+    z-index: 99;
+}
+#mp-navigation-closer .row {
+    padding-left: 3em;
+}
+.mp-navigation-closer-left {
+    background-position: center, center;
+    left: 18em;
+    right: 0px;
+}
+.mp-navigation-closer-right {
+    background-position: center, center;
+    left: 0px;
+    right: 18em;
+}
+#mp-navigation-container ul {
+    text-align: left;
+}
+
+#mp-site-content {
+}
+
+#mp-news-body {
+    display: none;
+}
+
+/* Contact */
+#mp-contact input,
+#mp-contact textarea {
+}
+
+/* Errors */
+#mp-errors {
+}
+
+/* Footer */
+#mp-footer {
+}
+#mp-footer p {
+}
+#mp-footer a {
+}
+#mp-footer ul {
+}
+#mp-footer li {
+}
+#mp-footer span {
+}
+#mp-footer span:hover {
+}
+#mp-footer .dropdown-menu {
+}
+#mp-footer .dropdown-menu ul {
+}
+#mp-footer .dropdown-menu li {
+}
+
+#mp-footer .dropdown-menu-right {
+}
+
+#meteorpress a {
+}
+
+/* Header */
+#mp-meta a {
+}
+
+#mp-meta a:hover {
+}
+
+#mp-meta .dropdown-menu {
+}
+
+#mp-meta .dropdown-menu ul {
+}
+
+#mp-meta .dropdown-menu li {
+}
+
+#mp-meta .dropdown-menu ul ul {
+}
+
+#mp-meta .dropdown-menu-right {
+}
+#mp-meta {
+}
+#mp-meta span {
+}
+#mp-meta span:hover {
+}
+#mp-logo {
+}
+
+/* Primary Navigation */
+#mp-navigation .dropdown-menu {
+}
+#mp-navigation {
+}
+#mp-navigation div {
+}
+
+/* Login Buttons */
+#login-buttons {
+}
+#login-buttons a {
+}
+
+/* News */
+#mpContainerNews {
+}
+#mpContainerNews h1 {
+}
+#mpContainerNews h5 {
+}
+
+/* Administration */
+#mp-admin-menu-toggle {
+}

@@ -1,0 +1,2493 @@
+<template name="mpAuthenticate">
+
+    <div id="mp-auth-container" class="row">
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6 text-center">
+                <img src="/meteorpress.png" alt="#MeteorPress by @iDoMeteor">
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6 text-center">
+                <h3>Authenticate Yourself</h3>
+                <p>Present your credentials for inspection.</p>
+                <p>&nbsp;</p>
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6 text-center">
+                <form id="mp-auth-email-form">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" name="email" class="form-control" placeholder="Email address">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="btn-group">
+                        <button id="mp-auth-email-login" type="button" class="btn btn-primary">Authenticate</button>
+                        <button id="mp-auth-email-create" type="button" class="btn btn-info">Create Account</button>
+                    </div>
+                </form>
+                <p>&nbsp;</p>
+                <p class="text-center">- OR -</p>
+                <p class="text-center">Click the icon of your favorite service</p>
+                <p>&nbsp;</p>
+                <ul id="mp-auth-icons" class="list-inline">
+                    {{#if enableLoginWithFacebook}} 
+                        <li id="mp-auth-facebook"><i class="fa fa-facebook fa-3x"></i></li>
+                    {{/if}}
+                    {{#if enableLoginWithGithub}} 
+                        <li id="mp-auth-github"><i class="fa fa-github fa-3x"></i></li>
+                    {{/if}}
+                    {{#if enableLoginWithGoogle}} 
+                        <li id="mp-auth-google"><i class="fa fa-google fa-3x"></i></li>
+                    {{/if}}
+                    {{#if enableLoginWithMeetup}} 
+                        <li id="mp-auth-meetup"><img class="fa fa-3x" src="/meteorpress/images/icons/meetup.png" title="Authenticate with Meetup" alt="Meetup" /></li>
+                    {{/if}}
+                    {{#if enableLoginWithMeteorDeveloper}} 
+                        <li id="mp-auth-meteor-developer"><img class="fa fa-3x" src="/meteorpress/images/icons/meteor.png" title="Authenticate with Meteor Developer" alt="Meteor Developer" /></li>
+                    {{/if}}
+                    {{#if enableLoginWithTwitter}} 
+                        <li id="mp-auth-twitter"><i class="fa fa-twitter fa-3x"></i></li>
+                    {{/if}}
+                    {{#if enableLoginWithWeibo}} 
+                        <li id="mp-auth-weibo"><i class="fa fa-weibo fa-3x"></i></li>
+                    {{/if}}
+                </ul>
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+    </div>
+
+</template>
+
+
+
+<template name="mpContact">
+
+    <div class="" id="mp-contact">
+        <input    name="name" id="contact-name" type="text" value="{{promptName}}" class="form-control" />
+        <input    name="twitter" id="contact-twitter" type="text" value="{{promptTwitter}}" class="form-control" />
+        <input    name="mail" id="contact-mail" type="text" value="{{promptMail}}" class="form-control" />
+        <textarea name="mesg" id="contact-mesg" class="form-control">{{promptMesg}}</textarea>
+    </div>
+
+</template>
+
+
+
+<template name="mpErrors">
+
+    <div class="" id="mp-errors">
+        {{#each mpErrors}}
+          {{> mpError}}
+        {{/each}}
+    </div>
+
+</template>
+
+
+
+<template name="mpError">
+
+    <div class="alert alert-danger">
+        <button type="submit" class="close" data-dismiss="alert" id="{{_id}}">
+            &times;
+        </button>
+        {{message}}
+    </div>
+
+</template>
+
+
+
+<template name="mpFooter">
+
+    <ul class="list-unstyled">
+        <li title="Make a Payment!">
+            <div class="">
+                <a type="button" class="" data-toggle="">
+                    <span class="glyphicon glyphicon-usd">Make a Payment</span>
+                </a>
+                {{!--
+                <div class="">
+                    {{> mpMakePayment }}
+                </div>
+                --}}
+                    {{> mpMakePayment }}
+            </div>
+        </li>
+        <li title="Chat">
+            <div class="">
+                <a type="button" class="" data-toggle="">
+                    <span class="glyphicon glyphicon-phone-alt">Chat</span>
+                </a>
+                {{!--
+                <div class="">
+                    {{> mpChat }}
+                </div>
+                --}}
+                    {{> mpChat }}
+            </div>
+        </li>
+        <li title="Contact @iDoMeteor">
+            <div class="">
+                <a type="button" class="" data-toggle="">
+                    <span class="glyphicon glyphicon-pencil">Contact @iDoMeteor</span>
+                </a>
+                {{!--
+                <div class="">
+                    {{> mpContact }}
+                </div>
+                --}}
+                    {{> mpContact }}
+            </div>
+        </li>
+        {{!--
+        <li title="Like this bitch on Facebook">
+            <a href="http://facebook.com/whatuhatin" rel="external">
+                <span class="glyphicon glyphicon-thumbs-down">Like</span>
+            </a>
+        </li>
+        --}}
+        <li title="Visit us on Twitter">
+            <a href="http://twitter.com/iDoMeteor" rel="external">
+                <span class="glyphicon glyphicon-retweet">Twitter</span>
+            </a>
+        </li>
+    </ul>
+
+    <ul class="list-unstyled">
+        <li title="Return to landing page">
+            <div class="">
+                <a title="Return to landing page" href="/">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            </div>
+        </li>
+    </ul>
+
+    <ul class="dropdown">
+        <li title="About @iDoMeteor">
+            <div class="">
+                <a type="button" class="" data-toggle="">
+                    <span class="glyphicon glyphicon-user">About @iDoMeteor</span>
+                </a>
+                <div class="">
+                    <p>About stuff here</p>
+                    {{!--
+                    <p>
+                        @iDoMeteor is a #MeteorJS Twitter bot by @mqtgeek,
+                        a lifetime code artist / #MeteorJS developer living
+                        deep in the woods of Michigan's Upper Peninsula.
+                    </p>
+                    <p>
+                        I provide custom apps for private intranet use
+                        (such as point-of-sale systems, customer relations,
+                        etc) as well as regular Internet apps & web sites.
+                    </p>
+                    <p>
+                        I typically spend two days a week coding open source software,
+                        four days on client projects and one day on personal
+                        projects.
+                    </p>
+                    <p>
+                        My typical workflow involves taking a deposit and sheduling an
+                        'app demo' for $500 which results in an 'app preview'.
+                        An 'app preview' provides a basic interface illustrating
+                        your app or site idea with mock data that is inserted
+                        programmatically.  This allows you to visualize your project
+                        and further evolve your ideas.
+                    </p>
+                    <p>
+                        An 'app demo' is the first working version of your app
+                        or web site that allows you to add and modify data.  You
+                        can imagine it as 'doing one thing and doing it well,'
+                        although in truth it will be doing a whole lot behind
+                        the scenes.
+                    </p>
+                    <p>
+                        Once you have a working app demo, I will work with you
+                        to develop a complete technical specification which will
+                        be used to guide your project through it's entire life
+                        cycle.
+                    </p>
+                    <p>
+                        I strive to provide sexy, exciting and cutting edge
+                        technology designed to solve problems and generate
+                        sales.  Send a contact request of look for me in the
+                        chat area to get started today!
+                    </p>
+                    <p>
+                    TODO: Make this a light box, describe process and
+                    tools (trello maybe, teablab, etc until i code my own! :))
+                    </p>
+                    --}}
+                </div>
+            </div>
+        </li>
+        <li title="About #MeteorPress">
+            <div class="">
+                <a type="button" class="" data-toggle="">
+                    <span class="glyphicon glyphicon-exclamation-sign">About #MeteorPress</span>
+                </a>
+                <div class="">
+                    <p>About stuff here</p>
+                    {{!--
+                    <p>
+                        MeteorPress is a brand new content management
+                        system (CMS) that we are coding from scratch to
+                        provide a elegant yet sophisticated way to create
+                        and manage #MeteorJS web sites.
+                    </p>
+                    <p>
+                        This web site is currently running MeteorPress
+                        v1.0.0-beta.2 and is under heavy development.
+                        The code is being hosted on GitHub, but I do
+                        not recommend relying on it too heavily until
+                        I reach at least v1.0.0-beta.3.
+                    </p>
+                    <p>
+                        Hope you enjoy using it as much as I enjoy coding it! :)
+                    </p>
+                    --}}
+                </div>
+            </div>
+        </li>
+        <li title="Receive and aesthetic surprise!">
+            <div class="">
+                <a type="button">
+                    <span class="glyphicon glyphicon-gift">Randomize Theme</span>
+                </a>
+            </div>
+        </li>
+        <li title="View traffic stats">
+            <div class="">
+                <a type="button" class="" data-toggle="">
+                    <span class="glyphicon glyphicon-stats">Stats</span>
+                </a>
+                <div class="">
+                    Coming soon
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <div class="col-xs-12" id="meteorpress">
+        <a href="http://meteorpress.org" title="Learn about #MeteorPress!" rel="external">
+            #MeteorPress {{MeteorPressVersion}}
+        </a>
+    </div>
+
+</template>
+
+
+
+<template name="mpHeader">
+
+    <div id="mp-tabs">
+
+        <div class="btn-group">
+            {{!-- Always show navigation --}}
+                <a id="mp-trigger-nav" title="Expose navigation menu" class="btn btn-primary" href="#">
+                    <span class="glyphicon glyphicon-menu-hamburger"></span>
+                </a>
+            {{!-- Always show home link --}}
+                <a id="mp-logo" title="Return to landing page" class="btn btn-primary" href="/">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            {{!-- Help, if enabled, pulse on updates --}}
+            {{!-- Should be contextual and lightbox help content
+                    div present in yeild templates --}}
+                <a id="mp-trigger-help" title="Get tips on using this site" class="btn btn-primary" href="#">
+                    <span class="glyphicon glyphicon-question-sign"></span>
+                </a>
+
+            {{!-- Chat, if enabled, pulse on new lines--}}
+                <a id="mp-trigger-chat" title="Join site chat" class="hide btn btn-info" href="#">
+                    <span class="glyphicon glyphicon-menu">Chat</span>
+                </a>
+
+            {{!-- Should not appear if no notifications, otherwise always and
+                    should have an unread counter of course--}}
+                <a id="mp-trigger-notifications" title="Your activity notifications" class="hide btn btn-info" href="#">
+                    <span class="glyphicon glyphicon-menu">Notifications</span>
+                </a>
+
+            {{!-- Should not appear if no messages, otherwise always and
+                    should have an unread counter of course--}}
+                <a id="mp-trigger-messages" title="Your private messages" class="hide btn btn-info" href="#">
+                    <span class="glyphicon glyphicon-menu">Messages</span>
+                </a>
+            {{!-- Switch navigation to sides--}}
+                <button id="mp-trigger-nav-switch" title="Move navigation to other side" class="btn btn-primary" href="#">
+                    <span id="mp-trigger-nav-glyph" class="glyphicon"></span>
+                </button>
+        </div>
+
+        {{!-- the following will slide out for 10-20 seconds or until dismissed --}}
+        <span class="hide row" id="mp-messages">
+            {{!-- if session message count --}}
+            {{!--
+                {{> mpErrors}}
+                {{> mpSuccess}}
+                {{> mpWarnings}}
+                --}}
+        </span>
+
+        {{!-- the following will slide out once in a while --}}
+        <span class="hide row" id="mp-news">
+            {{> mpNews}}
+        </span>
+
+    </div>
+
+</template>
+
+
+
+<template name="mpHome">
+
+    <div class="row">
+        <div class="col-lg-12">
+            {{#each mpPagesFeatured}}
+                <div class="mp-page-document">
+                    <h1>    {{content.headline}}    </h1>
+                    <h5>    {{content.summary}}     </h5>
+                    <p>     {{content.body}}        </p>
+                    {{#if content.spoken}}
+                        <audio src="/{{content.spoken}}" controls>
+                            Your browser does not support audio,
+                            <a href="/{{content.spoken}}">click here to download it</a>.
+                        </audio>
+                    {{/if}}
+                    {{#if code.video}}
+                    {{/if}}
+                    <p>{{video.link}}</p>
+                    {{#if video.link}}
+                    {{/if}}
+                </div>
+            {{/each}}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            {{#each mpPostsFeatured}}
+                <div class="mp-post-document">
+                    {{#with content}}
+                        <h1>    {{headline}}    </h1>
+                        <h5>    {{summary}}     </h5>
+                        <p>     {{body}}        </p>
+                        {{#if spoken}}
+                            <audio src="/{{spoken}}" controls>
+                                Your browser does not support audio,
+                                <a href="/{{spoken}}">click here to download it</a>.
+                            </audio>
+                        {{/if}}
+                    {{/with}}
+                    {{#if code.video}}
+                    {{/if}}
+                    {{#if video.link}}
+                    {{/if}}
+                </div>
+            {{/each}}
+        </div>
+    </div>
+
+</template>
+
+
+
+<template name="mpMaintenance">
+
+    <body style="height: 100%;">
+        <style type="text/css">html,body{background-color:white;color:#744}</style>
+        <div class="container top-margin-5">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <img 
+                        src     = "/meteorpress.png" 
+                        class   = "img-responsive center-block"
+                        title   = "#MeteorPress is in maintenance mode" />
+                    <h1>#MeteorPress is in maintenance mode</h1>
+                    <p>
+                        Please, leave your details below to sign up for release candidate
+                        testing!
+                    </p>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <input name="mp-subscribe-email" class="form-control" placeholder="iDoMeteor@gmail.com" />
+                </div>
+                <div class="col-sm-6 text-center">
+                    <input name="mp-subscribe-twitter" class="form-control" placeholder="@iDoMeteorPress" />
+                </div>
+                <div class="col-sm-12 text-center">
+                    <button id="mp-maintenance-subscribe" class="btn btn-sm btn-primary">Get notices!</button>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</template>
+
+
+
+<template name="mpMakePayment">
+
+    <div class="" id="mp-make-payment">
+
+        <p>
+            {{!-- Strings.quickPay --}}
+        </p>
+        <ul class="list-unstyled">
+            {{!--
+                <li>
+                    <a href="https://flattr.com/submit/auto?user_id=idometer&url=http%3A%2F%2Fidometeor.com" target="_blank"><img src="//api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
+                </li>
+                <li>
+                    <span data-gittip-username="idometeor"
+                        data-gittip-widget="button"
+                        src="//gttp.co/v1.js"></span>
+                </li>
+            --}}
+            <li>
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="BKNS7RYNBPJ74">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
+            </li>
+            {{!--
+                <li>
+                    <a class="coinbase-button" data-code="01ca91cf14e134e735832eb33fc3e7a8" data-button-style="donation_small" href="https://coinbase.com/checkouts/01ca91cf14e134e735832eb33fc3e7a8">Donate Bitcoins</a>
+                </li>
+                <li>
+                    <a href="bitcoin:1EhuP2q3EN8hNaeFFssHFMWSoptzGEYNrq?amount=0.02&label=Donation&message=Thanx!%21" title="Can Haz Bitcoin!">BTC Direct!</a>
+                </li>
+                <li>
+                    <a href="litecoin:LLZabmBE4pNik6apoPqd2qBh699Zh9Pp43?amount=0.50&label=Donation&message=Thanx!%21" title="Haz Litecoin?">Litecoin?</a>
+                </li>
+            --}}
+        </ul>
+
+    </div>
+
+</template>
+
+
+
+<template name="mpMarkDownBar">
+
+    {{!--
+        Going to need m0ar...
+            hr/justify/bold/em/link!/etc
+            also..
+                *list item
+                *1 ol item
+                *t term
+                *d definition
+    --}}
+
+    <div class="btn-group z1">
+        <button id="mp-markdownbar-undo" class="mp-markdownbar-btn btn btn-sm btn-primary">
+            <i class="fa fa-undo" title="Step backward in history"></i>
+        </button>
+        <button id="mp-markdownbar-redo" class="mp-markdownbar-btn btn btn-sm btn-primary">
+            <i class="fa fa-repeat" title="Step forward in history"></i>
+        </button>
+        <button id="mp-markdownbar-auto" class="mp-markdownbar-btn btn btn-sm btn-primary">
+            <i class="fa fa-magic" title="Use automagic Markdown mode"></i>
+        </button>
+        <button id="mp-markdownbar-header" class="mp-markdownbar-btn btn btn-sm btn-primary">
+            <i class="fa fa-header" title="Insert heading"></i>
+        </button>
+        <button id="mp-markdownbar-ul" class="mp-markdownbar-btn btn btn-sm btn-primary">
+            <i class="fa fa-list-ul" title="Insert unordered list"></i>
+        </button>
+        <button id="mp-markdownbar-audio" class="mp-markdownbar-btn btn btn-sm btn-primary">
+            <i class="fa fa-music" title="Insert attached audio object"></i>
+        </button>
+        <button id="mp-markdownbar-image" class="mp-markdownbar-btn btn btn-sm btn-primary">
+            <i class="fa fa-image" title="Insert attached image object"></i>
+        </button>
+        <button id="mp-markdownbar-video" class="mp-markdownbar-btn btn btn-sm btn-primary">
+            <i class="fa fa-video-camera" title="Insert attached video object"></i>
+        </button>
+        <button id="mp-markdownbar-code" class="mp-markdownbar-btn btn btn-sm btn-primary">
+            <i class="fa fa-code" title="Insert code block"></i>
+        </button>
+        <button id="mp-markdownbar-help" class="mp-markdownbar-btn btn btn-sm btn-primary">
+            <i class="fa fa-question" title="Show MP MarkDown help"></i>
+        </button>
+        <button id="mp-markdownbar-more" class="mp-markdownbar-btn btn btn-sm btn-primary">
+            <i class="fa fa-caret-down" title="Show more options"></i>
+        </button>
+    </div>
+
+</template>
+
+
+
+<template name="mpNavigation">
+
+    <div id="mp-nav-nav" class="clearfix">
+        <div id="mp-nav-home">
+            <a tabindex="-1" href="/" title="Return to landing page">
+                <span class="glyphicon glyphicon-home"></span>
+            </a>
+        </div>
+        <div id="mp-nav-close">
+            <a tabindex="-1" href="#" title="#">
+                <span class="glyphicon glyphicon-remove"></span>
+            </a>
+        </div>
+    </div>
+    <ul id="mp-navigation-menu" class="list-unstyled">
+        {{>mpNavigationRoot}}        
+        {{>mpNavigationPages}}        
+        {{>mpNavigationFooter}}        
+    </ul>
+
+</template>
+
+
+
+<template name="mpNavigationFooter">
+
+    <li>
+        <a tabindex="-1" href="#" title="#">
+            Footer Links
+        </a>
+    </li>
+    <li>
+        <a tabindex="-1" href="#" title="#">
+            Footer Links
+        </a>
+    </li>
+    <li id="mp-nav-technology">
+        Tech Logos<br />
+        <a tabindex="-1" href="#" title="#">
+            <img src="" alt="Logo Changer" title="" />
+        </a>
+    </li>
+    <li id="mp-nav-sponsors">
+        Sponsor Logos<br />
+        <a tabindex="-1" href="#" title="#">
+            <img src="" alt="Logo Changer" title="" />
+        </a>
+    </li>
+
+</template>
+
+
+
+<template name="mpNavigationPages">
+
+    <li class="mp-navigation-page-link">
+        <a tabindex="-1" href="#" title="#">
+            Blog
+        </a>
+    </li>
+    <li class="mp-navigation-page-link">
+        <a tabindex="-1" href="#" title="#">
+            Demos
+        </a>
+    </li>
+    <li class="mp-navigation-page-link">
+        <a tabindex="-1" href="#" title="#">
+            FAQ
+        </a>
+    </li>
+    <li class="mp-navigation-page-link">
+        <a tabindex="-1" href="#" title="#">
+            #MPMarkdown
+        </a>
+    </li>
+    <li class="mp-navigation-page-link">
+        <a tabindex="-1" href="#" title="#">
+            Testimonials
+        </a>
+    </li>
+    <li class="mp-navigation-page-link">
+        <a tabindex="-1" href="#" title="#">
+            Wiki
+        </a>
+    </li>
+
+</template>
+
+
+
+<template name="mpNavigationRoot">
+
+    {{!-- #if mpPrimaryLink}}
+        Setting a primary page link should remove it
+            from the page navigation array and appear here
+        *or* it could loop thru featured pages every 5 secs or so..
+    --}}
+    <li>
+        <a tabindex="-1" href="#" title="#">
+            #MeteorPress
+        </a>
+    </li>
+    {{#if currentUser}}
+        <li id="mp-clear-authentication">
+            Clear Authentication
+        </li>
+    {{else}}
+        {{#if loggingIn}}
+            <li id="mp-authenticating">
+                Authenticating
+                <i class="fa fa-spinner fa-pulse"></i>
+            </li>
+        {{else}}
+            <li id="mp-authenticate">
+                Authenticate
+            </li>
+        {{/if}}
+    {{/if}}
+
+    {{#if mpIsAdmin}}
+        <li id="mp-admin-toggle-chat" class="text-warning">
+            Enable Chat<i class="fa"></i>
+        </li>
+    {{/if}}
+
+
+
+
+    {{#if mpIsSuperUser}}
+        <li id="mp-admin-toggle-maintenance">
+            <span id="mp-admin-toggle-maintenance-text" class="{{maintenanceModeClass}}">
+                {{maintenanceModeText}}
+            </span>
+            <i class="fa"></i>
+        </li>
+    {{/if}}
+
+
+
+
+    {{#if mpIsAdmin}}
+        <li id="mp-admin-menu-toggle" class="mp-root-toggle">
+            Admin Settings
+        </li>
+        <ul id="mp-admin-menu-list" class="list-unstyled mp-root-sub">
+            {{>mpNavigationAdminMenu}}
+        </ul>
+    {{/if}}
+
+    {{#if currentUser}}
+        <li id="mp-user-menu-toggle" class="mp-root-toggle">
+            Your Settings
+        </li>
+        <ul id="mp-user-menu-list" class="list-unstyled mp-root-sub">
+            {{>mpNavigationUserMenu}}
+        </ul>
+    {{/if}}
+
+    {{#if mpEnableNews}}
+        <li>
+            <a tabindex="-1" href="#" title="#">
+                News
+            </a>
+        </li>
+    {{/if}}
+
+    {{#if mpEnablePosts}}
+        <li>
+            <a tabindex="-1" href="#" title="#">
+                Blog
+            </a>
+        </li>
+    {{/if}}
+    
+</template>
+
+
+
+<template name="mpNavigationSubPages">
+
+    <li>
+        <a tabindex="-1" href="#" title="#">
+            Parent's Children
+        </a>
+    </li>
+
+</template>
+
+
+
+<template name="mpNavigationUserChild">
+
+    <ul class="list-unstyled">
+        <li>
+            <a tabindex="-1" href="#" title="#">
+                User Child
+            </a>
+        </li>
+    </ul>
+
+</template>
+
+
+
+<template name="mpNews">
+
+    <div class="" id="mpContainerNews">
+
+        {{#each mpNewsRecent}}
+            <h1>    {{headline}}    </h1>
+            <h5>    {{summary}}     </h5>
+            <p>     {{content}}     </p>
+        {{/each}}
+
+    </div>
+
+</template>
+
+
+
+<template name="mpNavigationUserMenu">
+
+    <li>
+        <a tabindex= "-1" href="#" title="User Dashboard">
+            Dashboard
+        </a>
+    </li>
+    <li class="mp-submenu-toggle">
+            Content
+    </li>
+    <ul class="list-unstyled mp-submenu">
+        <li>
+                Activities
+        </li>
+        <li>
+                Interactions
+        </li>
+        <li>
+                History
+        </li>
+    </ul>
+    <li class="mp-submenu-toggle">
+            Site Preferences
+    </li>
+    <ul class="list-unstyled mp-submenu">
+        <li>
+                Auto-load
+        </li>
+        <li>
+                Auto-read
+        </li>
+        <li>
+                Theme
+        </li>
+    </ul>
+    <li class="mp-submenu-toggle">
+            User Preferences
+    </li>
+    <ul class="list-unstyled mp-submenu">
+        <li>
+                Display Name
+        </li>
+        <li>
+                Login Services
+        </li>
+        <li>
+                Profile Image
+        </li>
+        <li>
+                Notifications
+        </li>
+    </ul>
+
+</template>
+
+
+
+<template name="mpPageEditor">
+
+    <div id="mp-page-editor" class="panel panel-default">
+
+        <div class="panel-heading text-center">
+            <div class="row panel-title">
+                {{>mpPageEditorContextBar}}
+            </div>
+        </div>
+
+        <div class="row panel-body">
+            <div id="mp-pe-markdown-bar" class="col-xs-12 text-center">
+                {{>mpMarkDownBar}}
+            </div>
+            <div class="col-xs-12">
+                <textarea rows="30" 
+                    class="form-control z1" 
+                    id="mp-page-editor-body" 
+                    name="contentBody" 
+                    type="text"></textarea>
+            </div>
+        </div>
+
+    </div>
+
+</template>
+
+
+
+<template name="mpPageEditorContextBar">
+
+    <div class="btn-group z2">
+
+        <button id="mp-page-editor-toggle" class="btn btn-primary">
+            <i class="fa fa-caret-right"></i>
+        </button>
+        <button id="mp-page-editor-toggle-navigation" 
+                class="mp-page-editor-tab btn btn-primary">
+            <i class="fa fa-flag-o"></i>
+        </button>
+        <button id="mp-page-editor-toggle-dashboard" 
+                class="mp-page-editor-tab btn btn-primary">
+            <i class="fa fa-tachometer"></i>
+        </button>
+        <button id="mp-page-editor-toggle-metadata" 
+                class="mp-page-editor-tab btn btn-primary">
+            <i class="fa fa-sitemap"></i>
+        </button>
+        <button id="mp-page-editor-toggle-images" 
+                class="mp-page-editor-tab btn btn-primary">
+            <i class="fa fa-image"></i>
+        </button>
+        <button id="mp-page-editor-toggle-audio" 
+                class="mp-page-editor-tab btn btn-primary">
+            <i class="fa fa-music"></i>
+        </button>
+        <button id="mp-page-editor-toggle-video" 
+                class="mp-page-editor-tab btn btn-primary">
+            <i class="fa fa-video-camera"></i>
+        </button>
+        <button id="mp-page-editor-toggle-template" 
+                class="mp-page-editor-tab btn btn-primary">
+            <i class="fa fa-paint-brush"></i>
+        </button>
+        {{!-- Custom form fields .. v1.4.x
+            <button id="mp-page-editor-toggle-template" 
+                    class="mp-page-editor-tab btn btn-primary">
+                <i class="fa fa-form"></i>
+            </button>
+        --}}
+        <button id="mp-page-editor-toggle-toggles" 
+                class="mp-page-editor-tab btn btn-primary">
+            <i class="fa fa-toggle-on"></i>
+        </button>
+        <button id="mp-page-editor-toggle-publish" 
+                class="mp-page-editor-tab btn btn-info">
+            <i class="fa fa-send"></i>
+        </button>
+        <button id="mp-page-editor-toggle-trash" 
+                class="mp-page-editor-tab btn btn-danger">
+            <i class="fa fa-trash"></i>
+        </button>
+
+        <div id="mp-page-editor-context-panel" class="z1">
+            <div id="mp-context-wrapper">
+                {{>mpPageEditorContextPanel}}
+            </div>
+        </div>
+
+    </div>
+
+</template>
+
+
+
+<template name="mpPageEditorContextPanel">
+
+    <div id="mp-admin-page-card-dashboard" class="mp-admin-page-card">
+        {{>mpPageEditorDashboard}}
+    </div>
+    <div id="mp-admin-page-card-audio" class="mp-admin-page-card">
+        {{>mpPageEditorAudio}}
+    </div>
+    <div id="mp-admin-page-card-images" class="mp-admin-page-card">
+        {{>mpPageEditorImages}}
+    </div>
+    <div id="mp-admin-page-card-metadata" class="mp-admin-page-card">
+        {{>mpPageEditorMetadata}}
+    </div>
+    <div id="mp-admin-page-card-navigation" class="mp-admin-page-card">
+        {{>mpPageEditorNavigation}}
+    </div>
+    <div id="mp-admin-page-card-publish" class="mp-admin-page-card">
+        {{>mpPageEditorPublish}}
+    </div>
+    <div id="mp-admin-page-card-template" class="mp-admin-page-card">
+        {{>mpPageEditorDesign}}
+    </div>
+    <div id="mp-admin-page-card-toggles" class="mp-admin-page-card">
+        {{>mpPageEditorToggles}}
+    </div>
+    <div id="mp-admin-page-card-trash" class="mp-admin-page-card">
+        {{>mpPageEditorTrash}}
+    </div>
+    <div id="mp-admin-page-card-video" class="mp-admin-page-card">
+        {{>mpPageEditorVideo}}
+    </div>
+    <div id="mp-toggle-bar" class="text-center">
+        <i class="fa fa-caret-up"></i>
+    </div>
+
+</template>
+
+
+
+<template name="mpPageEditorAudio">
+
+    <div class="row">
+        {{!-- Clear context bar --}}
+    </div>
+
+    <div class="row">
+        <h2>Narrated Content</h2>
+    </div>
+
+    {{!-- Narrated Content Card --}}
+    <div class="row">
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-10 card">
+            <dl>
+                <dt>Link</dt>
+                <dd>
+                    <input 
+                        class="form-control" 
+                        id="mp-page-editor-content-spoken" 
+                        name="contentSpoken" 
+                        type="text">    
+                    <span class="mp-form-help"></span>
+                </dd>
+            </dl>
+        </div>
+        <div class="col-xs-1">
+        </div>
+    </div>
+
+    <div class="row">
+        <h2>Audio Attachments</h2>
+    </div>    
+
+    {{!-- Audio Attachment Card --}}
+    <div class="mp-pe-audio-attachment row">
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-10 card">
+            <dl>
+                <dt>Title</dt>
+                <dd>
+                    <input 
+                        class="mp-pe-audio-title form-control" 
+                        type="text">    
+                    <span class="mp-form-help"></span>
+                </dd>
+                <dt><p>Link</p></dt>
+                <dd>
+                    <input 
+                        class="mp-pe-audio-link form-control" 
+                        type="text">    
+                    <span class="mp-form-help"></span>
+                </dd>
+            </dl>
+            <div class="row center-text">
+                <button 
+                    class="mp-pe-add-audio btn btn-sm btn-primary" 
+                    title="Add another attachment">
+                    <i class="fa fa-plus"></i>
+                </button>
+                <audio
+                    class="hide mp-pe-audio"
+                    controls="true">
+                </audio>
+                <button 
+                    class="hide mp-pe-remove-audio btn btn-sm btn-danger" 
+                    title="Remove this attachment">
+                    <i class="fa fa-minus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-xs-1">
+        </div>
+    </div>
+
+    {{!-- Audio Cards
+          Auto-filled with pre-existing data 
+            and cloned when pressing + button --}}
+
+    {{#each audioAttachments}}
+        <div class="row">
+            <div class="col-xs-1">
+            </div>
+            <div class="col-xs-10 card">
+                <input
+                    type="hidden"
+                    value="{{_id}}">
+                <dl>
+                    <dt>Title</dt>
+                    <dd>
+                        <input 
+                            class="form-control" 
+                            id="mp-pe-audio-link-0" 
+                            maxlength="100" 
+                            name="audio.0.title" 
+                            type="text"
+                            value={{title}}> 
+                        <span class="mp-form-help"></span>
+                    </dd>
+                    <dt><p>Link</p></dt>
+                    <dd>
+                        <input 
+                            class="form-control" 
+                            maxlength="100" 
+                            id="mp-pe-audio-link-0" 
+                            name="audio.0.link" 
+                            type="text"
+                            value={{link}}>    
+                        <span class="mp-form-help"></span>
+                    </dd>
+                </dl>
+                <div class="row center-text">
+                    <audio
+                        class="float-left"
+                        src="{{link}}"
+                        title="{{title}}">
+                    </audio>
+                    <button 
+                        class="float-right btn btn-sm btn-danger" 
+                        title="Remove this attachment">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-xs-1">
+            </div>
+        </div>
+    {{/each}}
+
+</template>
+
+
+
+<template name="mpPageEditorDashboard">
+
+    <div class="row">
+        {{!-- Clear context bar --}}
+    </div>
+
+    <div class="row">
+        <h2>Page Dashboard</h2>
+    </div>
+
+    <div class="row center-text">
+
+        <div class="btn-group">
+            <button class="btn btn-sm btn-info">
+                Active
+            </button>
+            <button class="btn btn-sm btn-default">
+                Hidden
+            </button>
+            <button class="btn btn-sm btn-default">
+                Private
+            </button>
+            <button class="btn btn-sm btn-default">
+                Stale
+            </button>
+            <button class="btn btn-sm btn-default">
+                Removed
+            </button>
+        </div>
+
+    </div>    
+
+    <div class="row">
+
+        <div class="col-xs-1">
+        </div>    
+
+        <div class="col-xs-10 card text-left">
+            <p class="text-center">
+                Stamps
+            </p>
+            <dl>
+                <dt>Created At</dt>
+                <dd>xx/yy/zz @ aa:bb.cc by @user</dd>
+                <dt>Last Modified</dt>
+                <dd>xx/yy/zz @ aa:bb.cc by @user</dd>
+                <dt class="text-danger">Removed</dt>
+                <dd class="text-danger">xx/yy/zz @ aa:bb.cc by @user</dd>
+            </dl>
+            <p class="mp-toggle-parent-next text-center">
+                <a href="#">Expose Modification History</a>
+            </p>
+            <dl class="hide">
+                <dt class="text-muted">Revision Type : User</dt>
+                <dd class="text-muted">xx/yy/zz @ aa:bb.cc</dd>
+            </dl>
+        </div>    
+
+        <div class="col-xs-1">
+        </div>    
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-xs-1">
+        </div>    
+
+        <div class="col-xs-4 card">
+            <p>
+                Comments
+            </p>
+            <p>
+                0
+            </p>
+        </div>    
+
+        <div class="col-xs-2">
+        </div>    
+
+        <div class="col-xs-4 card">
+            <p>
+                Ratings
+            </p>
+            <p>
+                0
+            </p>
+        </div>    
+
+        <div class="col-xs-1">
+        </div>    
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-xs-1">
+        </div>    
+
+        <div class="col-xs-4 card">
+            <div class="row">
+                <p>
+                    Rendered
+                </p>
+                <p>
+                    0
+                </p>
+            </div>
+        </div>    
+
+        <div class="col-xs-2">
+        </div>    
+
+        <div class="col-xs-4 card">
+            <div class="row">
+                <p>
+                    Revisions
+                </p>
+                <p>
+                    0
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-4">
+                    <p>
+                        Major
+                    </p>
+                    <p>
+                        0
+                    </p>
+                </div>
+                <div class="col-xs-2"></div>
+                <div class="col-xs-4">
+                    <p>
+                        Minor
+                    </p>
+                    <p>
+                        0
+                    </p>
+                </div>
+                <div class="col-xs-1"></div>
+            </div>
+        </div>    
+
+        <div class="col-xs-1">
+        </div>    
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-xs-1">
+        </div>    
+
+        <div class="col-xs-4 card">
+            <p>
+                Author 1
+            </p>
+            <p>
+                And stuff about her
+            </p>
+        </div>    
+
+        <div class="col-xs-2">
+        </div>    
+
+        <div class="col-xs-4 card">
+            <p>
+                Author 2
+            </p>
+            <p>
+                And stuff about him
+            </p>
+        </div>    
+
+    </div>
+
+
+</template>
+
+
+
+<template name="mpPageEditorDesign">
+
+    <div class="row">
+        {{!-- Clear context bar --}}
+    </div>
+
+    <div class="row">
+        <h2>Page Aesthetics</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-10 card">
+            <p>
+                Template
+            </p>
+            <select 
+                class="form-control" 
+                id="mp-pe-template" 
+                name="mp-pe-template">
+                {{!-- TODO: These should eventually be read dynamically
+                            from valid templates --}}
+                <option value="Audio">Audio</option>
+                <option value="Blog">Blog</option>
+                <option value="Images">Images</option>
+                <option value="News">News</option>
+                <option value="Page" selected="selected">Page</option>
+                <option value="Product">Product</option>
+                <option value="Standard">Standard</option>
+                <option value="Video">Video</option>
+            </select>    
+            <span class="mp-form-help"></span>
+        </div>
+        <div class="col-xs-1">
+        </div>
+    </div>    
+    <div class="row">
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-10 card">
+            <div class="row">
+                <p>
+                    Navigational Element
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <p>
+                        CSS Class(es)
+                    </p>
+                    <div>
+                        <input 
+                            class="mp-fc-optional form-control" 
+                            id="mp-pe-nav-classes" 
+                            name="mp-pe-nav-classes" 
+                            type="text">    
+                        <span class="mp-form-help">
+                            Custom CSS classes (space separated)
+                        </span>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <p>
+                        Unique CSS ID
+                    </p>
+                    <div>
+                        <input 
+                            class="mp-fc-optional form-control" 
+                            id="mp-pe-nav-id" 
+                            name="mp-pe-nav-id" 
+                            type="text">    
+                        <span class="mp-form-help">
+                            Secondary class only
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <p>
+                        BS Glyph
+                    </p>
+                    <div>
+                        <input 
+                            class="mp-fc-optional form-control" 
+                            id="mp-pe-nav-glyph" 
+                            name="mp-pe-nav-glyph" 
+                            type="text">    
+                        <span class="mp-form-help">
+                            Custom CSS classes (space separated)
+                        </span>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <p>
+                        FA Icon
+                    </p>
+                    <div>
+                        <input 
+                            class="mp-fc-optional form-control" 
+                            id="mp-pe-nav-fai" 
+                            name="mp-pe-nav-fai" 
+                            type="text">    
+                        <span class="mp-form-help">
+                            Secondary class only
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1">
+        </div>
+    </div>    
+    <div class="row">
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-10 card">
+            <div class="row">
+                <p>
+                    Page Frame
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <p>
+                        CSS Class(es)
+                    </p>
+                    <input 
+                        class="mp-fc-optional form-control" 
+                        id="mp-pe-page-classes" 
+                        name="mp-pe-page-classes" 
+                        type="text">    
+                    <span class="mp-form-help">
+                        Custom CSS classes (space separated)
+                    </span>
+                </div>
+                <div class="col-xs-6">
+                    <p>
+                        Unique CSS ID
+                    </p>
+                    <input 
+                        class="mp-fc-optional form-control" 
+                        id="mp-pe-page-id" 
+                        name="mp-pe-page-id" 
+                        type="text">    
+                    <span class="mp-form-help">
+                        Secondary class only
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <p>
+                        BS Glyph
+                    </p>
+                    <input 
+                        class="mp-fc-optional form-control" 
+                        id="mp-pe-page-glyph" 
+                        name="mp-pe-page-glyph" 
+                        type="text">    
+                    <span class="mp-form-help">
+                        Custom CSS classes (space separated)
+                    </span>
+                </div>
+                <div class="col-xs-6">
+                    <p>
+                        FA Icon
+                    </p>
+                    <input 
+                        class="mp-fc-optional form-control" 
+                        id="mp-pe-page-fai" 
+                        name="mp-pe-page-fai" 
+                        type="text">    
+                    <span class="mp-form-help">
+                        Secondary class only
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1">
+        </div>
+    </div>    
+
+</template>
+
+
+
+<template name="mpPageEditorImages">
+
+    <div class="row">
+        {{!-- Clear context bar --}}
+    </div>
+
+    <h2>Image Attachments</h2>
+    <div class="mp-pe-image-attachment row">
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-10 card">
+            <div class="row">
+                <p>Title</p>
+                <input 
+                    class="mp-pe-image-title form-control" 
+                    placeholder="Required"
+                    type="text">    
+                <span class="mp-form-help">Image titles should be formatted in a similar fashion to book titles.</span>
+            </div>
+            <div class="row">
+                <p>Caption</p>
+                <input 
+                    class="mp-pe-image-caption form-control" 
+                    placeholder="Required"
+                    type="text">    
+                <span class="mp-form-help">Image captions should be succinct but thorough.</span>
+            </div>
+            <div class="row">
+                <p>Primary URL</p>
+                <input 
+                    class="mp-pe-image-input mp-pe-image-url form-control" 
+                    placeholder="Required"
+                    type="text">    
+                <span class="mp-form-help">The image displayed by default in the page context.</span>
+            </div>
+            <div class="row">
+                <p>Alternate Text</p>
+                <input 
+                    class="mp-pe-image-alt form-control" 
+                    placeholder="Required"
+                    type="text">    
+                <span class="mp-form-help"></span>
+            </div>
+            <div class="row">
+                <p>Name</p>
+                <input 
+                    class="mp-pe-image-name form-control" 
+                    placeholder="Required"
+                    type="text">    
+                <span class="mp-form-help"></span>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1">
+                </div>
+                <div class="col-xs-4">
+                    <p>Feature Image</p>
+                    <div class="btn-group">
+                        <button
+                                type="button" 
+                                class="mp-pe-image-toggle-feature mp-pe-toggle-on btn btn-sm btn-default">
+                            On
+                        </button>
+                        <button
+                                type="button" 
+                                class="mp-pe-image-toggle-feature mp-pe-toggle-off btn btn-sm btn-primary">
+                            Off
+                        </button>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                </div>
+                <div class="col-xs-4">
+                    <p>Sort Order</p>
+                    <select class="mp-pe-image-sort form-control">
+                        <option value="Alpha" selected="selected">Alpha</option>
+                        <option value="R-Alpha">R-Alpha</option>
+                        <option value="Chron">Chron</option>
+                        <option value="R-Chron">R-Chron</option>
+                            {{#each so}}
+                                <option value="{{this}}">{{this}}</option>
+                            {{/each}}
+                    </select>    
+                    <span class="mp-form-help">Sort order relative to siblings</span>
+                </div>
+                <div class="col-xs-1">
+                </div>
+            </div>
+
+            <div class="row center-block">
+                <div class="col-xs-1">
+                </div>
+                <div class="col-xs-10">
+                    <img class="hide mp-pe-image-primary mp-pe-image width-18-em" />
+                </div>
+                <div class="col-xs-1">
+                </div>
+            </div>
+
+            <div class="row">
+                <p>Links to</p>
+                <input 
+                    class="mp-pe-image-link form-control" 
+                    placeholder="Optional"
+                    type="text">    
+                <span class="mp-form-help"></span>
+            </div>
+            <div class="row">
+                <p>Huge URL</p>
+                <input 
+                    class="mp-pe-image-input mp-pe-image-url-huge form-control" 
+                    placeholder="Optional"
+                    type="text">    
+                <span class="mp-form-help"></span>
+                <div class="row center-block">
+                    <img class="hide mp-pe-image-huge width-18-em" />
+                </div>
+            </div>
+            <div class="row">
+                <p>Large URL</p>
+                <input 
+                    class="mp-pe-image-input mp-pe-image-url-large form-control" 
+                    placeholder="Optional"
+                    type="text">    
+                <span class="mp-form-help"></span>
+                <div class="row center-block">
+                    <img class="hide mp-pe-image-large width-18-em" />
+                </div>
+            </div>
+            <div class="row">
+                <p>Small URL</p>
+                <input 
+                    class="mp-pe-image-input mp-pe-image-url-small form-control" 
+                    placeholder="Optional"
+                    type="text">    
+                <span class="mp-form-help"></span>
+                <div class="row center-block">
+                    <img class="hide mp-pe-image-small width-18-em" />
+                </div>
+            </div>
+            <div class="row">
+                <p>Thumbnail (Square) URL</p>
+                <input 
+                    class="mp-pe-image-input mp-pe-image-url-square form-control" 
+                    placeholder="Optional"
+                    type="text">    
+                <span class="mp-form-help"></span>
+                <div class="row center-block">
+                    <img class="hide mp-pe-image-square width-18-em" />
+                </div>
+            </div>
+
+            <div class="row center-text">
+                <button 
+                    class="mp-pe-add-image btn btn-sm btn-primary" 
+                    title="Add another attachment">
+                    <i class="fa fa-plus"></i>
+                </button>
+                <button 
+                    class="hide mp-pe-remove-image btn btn-sm btn-danger" 
+                    title="Remove this attachment">
+                    <i class="fa fa-minus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-xs-1">
+        </div>
+    </div>    
+
+</template>
+
+
+
+<template name="mpPageEditorMetadata">
+
+    <div class="row">
+        {{!-- Clear context bar --}}
+    </div>
+
+    <div class="row">
+        <h2>Page Metadata</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-10 card">
+            <div class="row">
+                <p>Sitemap</p>
+                <div>
+                    <div class="btn-group">
+                        <button 
+                            id="mp-pe-sitemap-on" 
+                            type="button" 
+                            class="btn btn-sm btn-primary mp-pe-sitemap-toggle">
+                            On
+                        </button>
+                        <button 
+                            id="mp-pe-sitemap-off" 
+                            type="button" 
+                            class="btn btn-sm btn-default mp-pe-sitemap-toggle">
+                            Off
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <label 
+                        class="control-label"
+                        for="mp-page-editor-sitemap-frequency">
+                        Frequency
+                    </label>
+                    <select  
+                        class="form-control"  
+                        id="mp-page-editor-sitemap-frequency"  
+                        name="sitemapFrequency">
+
+                        <option value="always">Always</option>
+                        <option value="hourly">Hourly</option>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly" selected="selected">Monthly</option>
+                        <option value="yearly">Yearly</option>
+                        <option value="never">Never</option>
+
+                    </select>    
+                    <span class="mp-form-help"></span>
+                </div>
+                <div class="col-xs-6">
+                    <label 
+                        class="control-label" 
+                        for="mp-page-editor-sitemap-priority">
+                        Priority
+                    </label>
+                    <select 
+                        class="form-control" 
+                        id="mp-page-editor-sitemap-priority" 
+                        name="sitemapPriority">
+
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5" selected="selected">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+
+                    </select>    
+                    <span class="mp-form-help"></span>
+                </div>
+            </div>
+        </div>    
+        <div class="col-xs-1">
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-10 card">
+            <p>Permitted to View</p>
+            <div class="row">
+                <div class="col-xs-1">
+                </div>
+                <div class="col-xs-9">
+                    <select 
+                        class="mp-pe-access-role form-control" 
+                        name="template.type">
+                        <option value="Anonymous" selected="selected">Anonymous</option>
+                        <option value="Registered">Registered</option>
+                        {{#if groups}}
+                            <optgroup label="Groups">
+                                {{#each groups}}
+                                    <option value="{{_id}}">{{name}}</option>
+                                {{/each}}
+                            </optgroup>
+                        {{/if}}
+                        {{#if roles}}
+                            <optgroup label="Roles">
+                                {{#each roles}}
+                                    <option value="{{_id}}">{{name}}</option>
+                                {{/each}}
+                            </optgroup>
+                        {{/if}}
+                        <option value="SuperUsers">SuperUsers</option>
+                        <span class="mp-form-help"></span>
+                    </select>
+                </div>
+                <div class="col-xs-1">
+                    <button 
+                        class="btn btn-sm btn-danger" 
+                        title="Remove this image">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                </div>
+                <div class="col-xs-1">
+                </div>
+            </div>
+            <div class="row center-text">
+                <button 
+                    class="btn btn-sm btn-primary" 
+                    title="Add another image">
+                    <i class="fa fa-plus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-xs-1">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-10 card">
+            <p>Additional Authors</p>
+            <div class="row">
+                <div class="col-xs-1">
+                </div>
+                <div class="col-xs-9">
+                    <select 
+                        class="mp-pe-access-role form-control" 
+                        name="template.type">
+                        {{#each authors}}
+                            <option value="{{_id}}">{{username}}</option>
+                        {{/each}}
+                        <span class="mp-form-help"></span>
+                    </select>
+                </div>
+                <div class="col-xs-1">
+                    <button 
+                        class="btn btn-sm btn-danger" 
+                        title="Remove this image">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                </div>
+                <div class="col-xs-1">
+                </div>
+            </div>
+            <div class="row center-text">
+                <button 
+                    class="btn btn-sm btn-primary" 
+                    title="Add another image">
+                    <i class="fa fa-plus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-xs-1">
+        </div>
+    </div>
+
+</template>
+
+
+
+<template name="mpPageEditorNavigation">
+
+    <div class="row">
+        {{!-- Clear context bar --}}
+    </div>
+
+    <div class="row">
+        <h2>Abstract</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-10 card">
+            <div class="row">
+                <div class="col-xs-1">
+                </div>
+                <div class="col-xs-10">
+                    <p>Headline</p>
+                    <input 
+                        class="mp-fc-required form-control" 
+                        maxlength="100" 
+                        id="mp-pe-content-headline" 
+                        name="contentHeadline" 
+                        type="text">    
+                    <span class="mp-form-help">Must be 1 and 100 characters</span>
+                </div>
+                <div class="col-xs-1">
+                </div>
+            </div>    
+            <div class="row">
+                <div class="col-xs-1">
+                </div>
+                <div class="col-xs-10">
+                    <p>Summary</p>
+                    <textarea 
+                        rows="2" 
+                        class="mp-fc-required form-control" 
+                        id="mp-pe-content-summary" 
+                        name="contentSummary" 
+                        type="text"></textarea>
+                    <span class="mp-form-help">Must be between 25 and 255 characters</span>
+                </div>
+                <div class="col-xs-1">
+                </div>
+            </div>    
+        </div>
+        <div class="col-xs-1">
+        </div>
+    </div>
+
+    <div class="row">
+        <h2>Navigation</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-10 card">
+            <div class="row">
+                <div class="col-xs-6">
+                    <p class="control-label" for="pjmXfMh46coCRuJpn">
+                        Active
+                    </p>
+                    <div>
+                        <div class="btn-group">
+                            <button id="mp-page-editor-active-on" 
+                                    type="button" 
+                                    class="btn btn-sm btn-primary">
+                                On
+                            </button>
+                            <button id="mp-page-editor-active-off" 
+                                    type="button" 
+                                    class="btn btn-sm btn-default">
+                                Off
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <p class="control-label" for="nY2GNmnFfLSuBwMvr">
+                        Hidden
+                    </p>
+                    <div>
+                        <div class="btn-group">
+                            <button id="mp-page-editor-hidden-on" 
+                                    type="button" 
+                                    class="btn btn-sm btn-default">
+                                On
+                            </button>
+                            <button id="mp-page-editor-hidden-off" 
+                                    type="button" 
+                                    class="btn btn-sm btn-primary">
+                                Off
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <p class="control-label" 
+                            for="EHHRmDYeBANn5HRAA">
+                        Title
+                    </p>
+                    <input 
+                        class="mp-fc-required form-control" 
+                        maxlength="25" 
+                        id="mp-pe-navigation-title" 
+                        name="navigationTitle" 
+                        type="text">    
+                    <span class="mp-form-help">Must be between 1 and 25 characters</span>
+                </div>
+                <div class="col-xs-4">
+                    <p class="control-label" for="EHHRmDYeBANn5HRAA">
+                        Parent
+                    </p>
+                    <select 
+                            class="form-control" 
+                            id="nY2GNmnFfLSuBwMvr" 
+                            name="navigationSort">
+                        <option value="0">Root</option>
+                        {{#each parents}}
+                            <option value="{{_id}}">{{page}}</option>
+                        {{/each}}
+                    </select>    
+                    <span class="mp-form-help">Choose an existing page or root</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <p class="control-label" 
+                            for="EHHRmDYeBANn5HRAA">
+                        Slug
+                    </p>
+                    <input 
+                        class="mp-fc-required form-control" 
+                        maxlength="100" 
+                        id="mp-pe-navigation-slug" 
+                        name="navigationSlug" 
+                        type="text">    
+                        <span class="mp-form-help">1-100 alphanumeric characters, underscores, and hyphens</span>
+                </div>
+                <div class="col-xs-4">
+                    <p class="control-label" for="EHHRmDYeBANn5HRAA">
+                        Sort
+                    </p>
+                    <select 
+                            class="form-control" 
+                            id="nY2GNmnFfLSuBwMvr" 
+                            name="navigationSort">
+                        <option value="Alpha">Alpha</option>
+                        <option value="R-Alpha">R-Alpha</option>
+                        <option value="Chron">Chron</option>
+                        <option value="R-Chron">R-Chron</option>
+                            {{#each so}}
+                                <option value="{{this}}">{{this}}</option>
+                            {{/each}}
+                    </select>    
+                    <span class="mp-form-help">Sort order relative to siblings</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1">
+        </div>
+    </div>
+
+</template>
+
+
+
+<template name="mpPageEditorPublish">
+
+    <div class="row">
+        {{!-- Clear context bar --}}
+    </div>
+
+    <div class="row">
+        <h2>Page Publisher</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-10 card">
+            <div class="row">
+                <p>Save this page and go to:</p>
+                <div class="btn-group">
+                    <button id="mp-pe-save-close" 
+                            type="button" 
+                            class="mp-pe-save btn btn-default">
+                        Dashboard
+                    </button>
+                    <button id="mp-pe-save-close" 
+                            type="button" 
+                            class="mp-pe-save btn btn-default">
+                        Home
+                    </button>
+                    <button id="mp-pe-save-new" 
+                            type="button" 
+                            class="mp-pe-save btn btn-default">
+                        New
+                    </button>
+                    <button id="mp-pe-save-stay" 
+                            type="button" 
+                            class="mp-pe-save btn btn-default">
+                        Stay
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <p>Revision type</p>
+                <div class="btn-group">
+                    <button id="mp-ap-collapse-headers-on" 
+                            type="button" 
+                            class="btn btn-sm btn-default">
+                        Major
+                    </button>
+                    <button id="mp-ap-collapse-headers-on" 
+                            type="button" 
+                            class="btn btn-sm btn-primary">
+                        Minor
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-10 card">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p class="control-label" 
+                            for="EHHRmDYeBANn5HRAA">
+                        Tweet
+                    </p>
+                    <input 
+                        class="mp-fc-optional form-control" 
+                        maxlength="20" 
+                        id="EHHRmDYeBANn5HRAA" 
+                        name="navigationTitle" 
+                        type="text">    
+                    <span class="mp-form-help">Custom CSS classes (space separated)</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <p class="control-label">
+                        Image
+                    </p>
+                    <input 
+                        class="mp-fc-optional form-control" 
+                        maxlength="20" 
+                        id="mp-pe-tweet-image" 
+                        name="tweetImage" 
+                        type="text">    
+                    <span class="mp-form-help">Custom CSS classes (space separated)</span>
+                </div>
+                <div class="col-xs-4">
+                    <p class="control-label" for="pjmXfMh46coCRuJpn">
+                        On Save
+                    </p>
+                    <div>
+                        <div class="btn-group">
+                            <button id="mp-page-editor-active-on" 
+                                    type="button" 
+                                    class="btn btn-sm btn-primary">
+                                On
+                            </button>
+                            <button id="mp-page-editor-active-off" 
+                                    type="button" 
+                                    class="btn btn-sm btn-default">
+                                Off
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1">
+        </div>
+    </div>
+
+</template>
+
+
+
+<template name="mpPageEditorToggles">
+
+    <div class="row">
+        {{!-- Clear context bar --}}
+    </div>
+
+    <div class="row">
+        <h2>Page Toggles</h2>
+    </div>
+
+    <div class="row">
+
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-4">
+
+            <div class="form-group">
+                <p>
+                    Audio
+                </p>
+                <div class="btn-group">
+                    <button id="mp-pe-audio-on" type="button" class="btn btn-sm btn-primary mp-page-editor-toggle-toggle">On</button>
+                    <button id="mp-pe-audio-off" type="button" class="btn btn-sm btn-default mp-page-editor-toggle-toggle">Off</button>
+                </div>
+            </div>    
+            <div class="form-group">
+                <p>
+                    Collapsible
+                </p>
+                <div class="btn-group">
+                    <button id="mp-pe-collapsible-on" type="button" class="btn btn-sm btn-primary mp-page-editor-toggle-toggle">On</button>
+                    <button id="mp-pe-collapsible-off" type="button" class="btn btn-sm btn-default mp-page-editor-toggle-toggle">Off</button>
+                </div>
+            </div>    
+            <div class="form-group">
+                <p>
+                    Comments
+                </p>
+                <div class="btn-group">
+                    <button id="mp-pe-comments-on" type="button" class="btn btn-sm btn-primary mp-page-editor-toggle-toggle">On</button>
+                    <button id="mp-pe-comments-off" type="button" class="btn btn-sm btn-default mp-page-editor-toggle-toggle">Off</button>
+                </div>
+            </div>    
+            <div class="form-group">
+                <p>
+                    Featured
+                </p>
+                <div class="btn-group">
+                    <button id="mp-pe-featured-on" type="button" class="btn btn-sm btn-primary mp-page-editor-toggle-toggle">On</button>
+                    <button id="mp-pe-featured-off" type="button" class="btn btn-sm btn-default mp-page-editor-toggle-toggle">Off</button>
+                </div>
+            </div>    
+            <div class="form-group">
+                <p>
+                    Images
+                </p>
+                <div class="btn-group">
+                    <button id="mp-pe-images-on" type="button" class="btn btn-sm btn-primary mp-page-editor-toggle-toggle">On</button>
+                    <button id="mp-pe-images-off" type="button" class="btn btn-sm btn-default mp-page-editor-toggle-toggle">Off</button>
+                </div>
+            </div>    
+            <div class="form-group">
+                <p>
+                    Markdown
+                </p>
+                <div class="btn-group">
+                    <button id="mp-pe-markdown-on" type="button" class="btn btn-sm btn-primary mp-page-editor-toggle-toggle">On</button>
+                    <button id="mp-pe-markdown-off" type="button" class="btn btn-sm btn-default mp-page-editor-toggle-toggle">Off</button>
+                </div>
+            </div>    
+            <div class="form-group">
+                <p>
+                    PDF
+                </p>
+                <div class="btn-group">
+                    <button id="mp-pe-pdf-on" type="button" class="btn btn-sm btn-primary mp-page-editor-toggle-toggle">On</button>
+                    <button id="mp-pe-pdf-off" type="button" class="btn btn-sm btn-default mp-page-editor-toggle-toggle">Off</button>
+                </div>
+            </div>    
+            <div class="form-group">
+                <p>
+                    Private
+                </p>
+                <div class="btn-group">
+                    <button id="mp-pe-pdf-on" type="button" class="btn btn-sm btn-primary mp-page-editor-toggle-toggle">On</button>
+                    <button id="mp-pe-pdf-off" type="button" class="btn btn-sm btn-default mp-page-editor-toggle-toggle">Off</button>
+                </div>
+            </div>    
+
+        </div>
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-4">
+
+            <div class="form-group">
+                <p>
+                    Ratings
+                </p>
+                <div class="btn-group">
+                    <button id="mp-pe-ratings-on" type="button" class="btn btn-sm btn-primary mp-page-editor-toggle-toggle">On</button>
+                    <button id="mp-pe-ratings-off" type="button" class="btn btn-sm btn-default mp-page-editor-toggle-toggle">Off</button>
+                </div>
+            </div>    
+            <div class="form-group">
+                <p>
+                    Sticky
+                </p>
+                <div class="btn-group">
+                    <button id="mp-pe-sticky-on" type="button" class="btn btn-sm btn-primary mp-page-editor-toggle-toggle">On</button>
+                    <button id="mp-pe-sticky-off" type="button" class="btn btn-sm btn-default mp-page-editor-toggle-toggle">Off</button>
+                </div>
+            </div>    
+            <div class="form-group">
+                <p>
+                    Share
+                </p>
+                <div class="btn-group">
+                    <button id="mp-pe-share-on" type="button" class="btn btn-sm btn-primary mp-page-editor-toggle-toggle">On</button>
+                    <button id="mp-pe-share-off" type="button" class="btn btn-sm btn-default mp-page-editor-toggle-toggle">Off</button>
+                </div>
+            </div>    
+            <div class="form-group">
+                <p>
+                    Site header
+                </p>
+                <div class="btn-group">
+                    <button id="mp-pe-site-header-on" type="button" class="btn btn-sm btn-primary mp-page-editor-toggle-toggle">On</button>
+                    <button id="mp-pe-site-header-off" type="button" class="btn btn-sm btn-default mp-page-editor-toggle-toggle">Off</button>
+                </div>
+            </div>    
+            <div class="form-group">
+                <p>
+                    Text2speech
+                </p>
+                <div class="btn-group">
+                    <button id="mp-t2s-on" type="button" class="btn btn-sm btn-primary mp-page-editor-toggle-toggle">On</button>
+                    <button id="mp-t2s-off" type="button" class="btn btn-sm btn-default mp-page-editor-toggle-toggle">Off</button>
+                </div>
+            </div>    
+            <div class="form-group">
+                <p>
+                    Table of contents
+                </p>
+                <div class="btn-group">
+                    <button id="mp-pe-toc-on" type="button" class="btn btn-sm btn-primary mp-page-editor-toggle-toggle">On</button>
+                    <button id="mp-pe-toc-off" type="button" class="btn btn-sm btn-default mp-page-editor-toggle-toggle">Off</button>
+                </div>
+            </div>    
+            <div class="form-group">
+                <p>
+                    Videos
+                </p>
+                <div class="btn-group">
+                    <button id="mp-pe-videos-on" type="button" class="btn btn-sm btn-primary mp-page-editor-toggle-toggle">On</button>
+                    <button id="mp-pe-videos-off" type="button" class="btn btn-sm btn-default mp-page-editor-toggle-toggle">Off</button>
+                </div>
+            </div>    
+
+        </div>
+        <div class="col-xs-1">
+        </div>
+
+    </div>
+
+</template>
+
+
+
+<template name="mpPageEditorTrash">
+
+    <div class="row">
+        {{!-- Clear context bar --}}
+    </div>
+
+    <div class="row">
+        <h2>Trash Compactor</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-10 card">
+            <div class="row">
+                <p>Trash this page and go to:</p>
+                <div class="btn-group">
+                    <button id="mp-pe-save-close" 
+                            type="button" 
+                            class="mp-pe-save btn btn-default">
+                        Dashboard
+                    </button>
+                    <button id="mp-pe-save-stay" 
+                            type="button" 
+                            class="mp-pe-save btn btn-default">
+                        Home
+                    </button>
+                    <button id="mp-pe-save-new" 
+                            type="button" 
+                            class="mp-pe-save btn btn-default">
+                        New
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1">
+        </div>
+    </div>
+
+    <div class="row">
+        <h2>Safer Options</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-10 card">
+            <div class="row">
+                <div class="col-xs-6">
+                    <p class="control-label" for="pjmXfMh46coCRuJpn">
+                        Active
+                    </p>
+                    <div>
+                        <div class="btn-group">
+                            <button id="mp-page-editor-active-on" 
+                                    type="button" 
+                                    class="btn btn-sm btn-primary">
+                                On
+                            </button>
+                            <button id="mp-page-editor-active-off" 
+                                    type="button" 
+                                    class="btn btn-sm btn-default">
+                                Off
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <p class="control-label" for="nY2GNmnFfLSuBwMvr">
+                        Hidden
+                    </p>
+                    <div>
+                        <div class="btn-group">
+                            <button id="mp-page-editor-hidden-on" 
+                                    type="button" 
+                                    class="btn btn-sm btn-default">
+                                On
+                            </button>
+                            <button id="mp-page-editor-hidden-off" 
+                                    type="button" 
+                                    class="btn btn-sm btn-primary">
+                                Off
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1">
+        </div>
+    </div>
+
+</template>
+
+
+
+<template name="mpPageEditorVideo">
+
+    <div class="row">
+        {{!-- Clear context bar --}}
+    </div>
+
+    <div class="row">
+        <h2>Youtube Attachments</h2>
+    </div>
+
+    {{!-- Clone on each + click, moving + button --}}
+    <div class="row">
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-10 card">
+            <div class="row">
+                <p>Title</p>
+                <div class="col-xs-2">
+                </div>
+                <div class="col-xs-8">
+                    <input class="form-control" 
+                        maxlength="100" 
+                        id="mp-page-editor-video-title-0" 
+                        name="video.0.title" 
+                        type="text">    
+                    <span class="mp-form-help"></span>
+                </div>
+                <div class="col-xs-2">
+                </div>
+            </div>
+            <div class="row">
+                <p>Link</p>
+                <div class="col-xs-2">
+                </div>
+                <div class="col-xs-8">
+                    <input class="form-control" 
+                        maxlength="100" 
+                        id="mp-page-editor-video-link-0" 
+                        name="video.0.link" 
+                        type="text">    
+                    <span class="mp-form-help"></span>
+                </div>
+                <div class="col-xs-2">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2">
+                    <button class="btn btn-sm btn-primary" type="button">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+                <div class="col-xs-8">
+                </div>
+                <div class="col-xs-2">
+                    <button class="btn btn-sm btn-primary" type="button">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1">
+        </div>
+    </div>
+
+</template>
+
+
+
+<template name="mpRoot">
+
+    <div id="mp-navigation-container">
+
+        {{>mpNavigation}}
+
+    </div>
+
+    <div id="mp-navigation-closer">
+        {{!-- Using mouseout of above div makes for toggle jankery --}}
+        <div class="row">
+            {{!-- This looked good in success mode --}}
+            <div class="text-left">
+                Chat...
+            </div>
+            <div class="text-left">
+                Site Stats...
+            </div>
+            <div class="text-left">
+                User Stats...
+            </div>
+        </div>
+    </div>
+
+    <div id="mp-site-content" class="container-fluid">
+
+        <div class="row" id="mp-header">
+            {{>mpHeader}}
+        </div>
+
+        <div class="row" id="mp-yield">
+            {{> yield}}
+        </div>
+
+        <div class="row" id="mp-footer">
+            {{!-- >mpFooter --}}
+        </div>
+
+    </div>
+    <noscript>This site uses cutting edge technology based on #MeteorJS and #MeteorPress
+        by @iDoMeteor.  Please enable javascript in your browser or visit us from another
+        device.  Thanks!</noscript>
+
+</template>
+
+
+

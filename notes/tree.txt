@@ -1,0 +1,310 @@
+.
+├── LICENSE
+├── meteorpress
+│   ├── client
+│   │   ├── lib
+│   │   │   ├── ganalytics.js
+│   │   │   └── mp-client-init.js
+│   │   ├── main.js
+│   │   ├── meteorpress
+│   │   │   ├── mp-client-config.js
+│   │   │   ├── mp-markdown.js
+│   │   │   ├── mp-template-helpers.js
+│   │   │   └── mp-theme-engine.js
+│   │   └── themes
+│   │       └── boostrap-text-only-dark
+│   │           ├── plugins
+│   │           │   ├── bootstrap-js
+│   │           │   │   ├── affix.js
+│   │           │   │   ├── alert.js
+│   │           │   │   ├── button.js
+│   │           │   │   ├── carousel.js
+│   │           │   │   ├── collapse.js
+│   │           │   │   ├── dropdown.js
+│   │           │   │   ├── modal.js
+│   │           │   │   ├── scrollspy.js
+│   │           │   │   ├── tab.js
+│   │           │   │   ├── tests
+│   │           │   │   │   ├── index.html
+│   │           │   │   │   ├── README.md
+│   │           │   │   │   ├── unit
+│   │           │   │   │   │   ├── affix.js
+│   │           │   │   │   │   ├── alert.js
+│   │           │   │   │   │   ├── button.js
+│   │           │   │   │   │   ├── carousel.js
+│   │           │   │   │   │   ├── collapse.js
+│   │           │   │   │   │   ├── dropdown.js
+│   │           │   │   │   │   ├── modal.js
+│   │           │   │   │   │   ├── phantom.js
+│   │           │   │   │   │   ├── popover.js
+│   │           │   │   │   │   ├── scrollspy.js
+│   │           │   │   │   │   ├── tab.js
+│   │           │   │   │   │   └── tooltip.js
+│   │           │   │   │   ├── vendor
+│   │           │   │   │   │   ├── jquery.min.js
+│   │           │   │   │   │   ├── qunit.css
+│   │           │   │   │   │   └── qunit.js
+│   │           │   │   │   └── visual
+│   │           │   │   │       ├── affix.html
+│   │           │   │   │       ├── alert.html
+│   │           │   │   │       ├── button.html
+│   │           │   │   │       ├── carousel.html
+│   │           │   │   │       ├── collapse.html
+│   │           │   │   │       ├── dropdown.html
+│   │           │   │   │       ├── modal.html
+│   │           │   │   │       ├── popover.html
+│   │           │   │   │       ├── scrollspy.html
+│   │           │   │   │       ├── tab.html
+│   │           │   │   │       └── tooltip.html
+│   │           │   │   ├── tooltip.js
+│   │           │   │   └── transition.js
+│   │           │   ├── chat-admin.html
+│   │           │   ├── chat.css
+│   │           │   ├── chat.html
+│   │           │   └── chat.js
+│   │           ├── vanilla-admin-hooks.js
+│   │           ├── vanilla-admin.html
+│   │           ├── vanilla.css
+│   │           ├── vanilla.html
+│   │           ├── vanilla-install.css
+│   │           ├── vanilla-installers.html
+│   │           ├── vanilla-install-hooks.js
+│   │           ├── vanilla.js
+│   │           ├── vanilla.less
+│   │           └── vanilla-loaders.html
+│   ├── lib
+│   │   ├── main.js
+│   │   ├── meteorpress
+│   │   │   ├── config
+│   │   │   │   └── mp-defaults.js
+│   │   │   ├── mp-api.js
+│   │   │   ├── mp-collections.js
+│   │   │   ├── mp-global-init.js
+│   │   │   ├── mp-global-methods.js
+│   │   │   ├── mp-routes.js
+│   │   │   ├── mp-schemas.js
+│   │   │   ├── mp-strings.js
+│   │   │   └── mp-subscriptions.js
+│   │   └── mp-plugins
+│   │       ├── misc
+│   │       │   └── j-utils.js
+│   │       ├── mp-chat
+│   │       │   └── mp-chat-lib.js
+│   │       ├── mp-crm
+│   │       ├── mp-plugin-engine.js
+│   │       ├── mp-press-room
+│   │       │   └── mp-press-room.js
+│   │       ├── payment-gateways
+│   │       │   ├── authorize.net
+│   │       │   ├── google-wallet.js
+│   │       │   ├── payoneer.js
+│   │       │   └── paypal.js
+│   │       └── products
+│   │           └── products.js
+│   └── server
+│       ├── lib
+│       │   └── mp-server-init.js
+│       ├── main.js
+│       └── meteorpress
+│           ├── mp-demo-data.js
+│           ├── mp-errors.js
+│           ├── mp-meteor-hooks.js
+│           ├── mp-methods.js
+│           ├── mp-publications.js
+│           ├── mp-traffic-log.js
+│           ├── mp-users.js
+│           ├── mp-utils.js
+│           └── plugins
+│               ├── mp-chat
+│               │   └── mp-chat-server.js
+│               └── twiefbot
+│                   └── credentials-twitter.js
+├── meteorpress.json
+├── meteorpress.sh
+├── notes
+│   ├── needs.txt
+│   ├── notes.txt
+│   ├── todo.txt
+│   ├── tree-d.txt
+│   └── tree.txt
+├── packages
+│   ├── bootstrap-less
+│   │   ├── alerts.less
+│   │   ├── badges.less
+│   │   ├── bootstrap.less
+│   │   ├── breadcrumbs.less
+│   │   ├── button-groups.less
+│   │   ├── buttons.less
+│   │   ├── carousel.less
+│   │   ├── close.less
+│   │   ├── code.less
+│   │   ├── component-animations.less
+│   │   ├── dropdowns.less
+│   │   ├── forms.less
+│   │   ├── glyphicons.less
+│   │   ├── grid.less
+│   │   ├── input-groups.less
+│   │   ├── jumbotron.less
+│   │   ├── labels.less
+│   │   ├── list-group.less
+│   │   ├── media.less
+│   │   ├── mixins
+│   │   │   ├── alerts.less
+│   │   │   ├── background-variant.less
+│   │   │   ├── border-radius.less
+│   │   │   ├── buttons.less
+│   │   │   ├── center-block.less
+│   │   │   ├── clearfix.less
+│   │   │   ├── forms.less
+│   │   │   ├── gradients.less
+│   │   │   ├── grid-framework.less
+│   │   │   ├── grid.less
+│   │   │   ├── hide-text.less
+│   │   │   ├── image.less
+│   │   │   ├── labels.less
+│   │   │   ├── list-group.less
+│   │   │   ├── nav-divider.less
+│   │   │   ├── nav-vertical-align.less
+│   │   │   ├── opacity.less
+│   │   │   ├── pagination.less
+│   │   │   ├── panels.less
+│   │   │   ├── progress-bar.less
+│   │   │   ├── reset-filter.less
+│   │   │   ├── resize.less
+│   │   │   ├── responsive-visibility.less
+│   │   │   ├── size.less
+│   │   │   ├── tab-focus.less
+│   │   │   ├── table-row.less
+│   │   │   ├── text-emphasis.less
+│   │   │   ├── text-overflow.less
+│   │   │   └── vendor-prefixes.less
+│   │   ├── mixins.less
+│   │   ├── modals.less
+│   │   ├── MP-README.txt
+│   │   ├── navbar.less
+│   │   ├── navs.less
+│   │   ├── normalize.less
+│   │   ├── pager.less
+│   │   ├── pagination.less
+│   │   ├── panels.less
+│   │   ├── popovers.less
+│   │   ├── print.less
+│   │   ├── progress-bars.less
+│   │   ├── responsive-embed.less
+│   │   ├── responsive-utilities.less
+│   │   ├── scaffolding.less
+│   │   ├── tables.less
+│   │   ├── theme.less
+│   │   ├── thumbnails.less
+│   │   ├── tooltip.less
+│   │   ├── type.less
+│   │   ├── utilities.less
+│   │   ├── variables.less
+│   │   └── wells.less
+│   └── bootstrap-less-themes
+│       ├── meteorpress-bootswatch.less
+│       ├── meteorpress-variables.less
+│       ├── meteorpress-variables.less~
+│       ├── simplex-bootswatch.less
+│       ├── simplex-variables.less
+│       └── simplex-variables.less~
+├── plugins
+│   ├── mp-crm
+│   └── mp-ez-leet-speak
+│       └── mp-ez-leet-speak.js
+├── private
+│   └── dump
+│       └── meteor
+│           ├── meteor_accounts_loginServiceConfiguration.bson
+│           ├── meteor_accounts_loginServiceConfiguration.metadata.json
+│           ├── meteor_oauth_pendingCredentials.bson
+│           ├── meteor_oauth_pendingCredentials.metadata.json
+│           ├── meteor_oauth_pendingRequestTokens.bson
+│           ├── meteor_oauth_pendingRequestTokens.metadata.json
+│           ├── mpconfiguration.bson
+│           ├── mpconfiguration.metadata.json
+│           ├── mploglog.bson
+│           ├── mploglog.metadata.json
+│           ├── mprolefeatures.bson
+│           ├── mprolefeatures.metadata.json
+│           ├── mproleperms.bson
+│           ├── mproleperms.metadata.json
+│           ├── mproles.bson
+│           ├── mproles.metadata.json
+│           ├── mpsingletons.bson
+│           ├── mpsingletons.metadata.json
+│           ├── mpsitelog.bson
+│           ├── mpsitelog.metadata.json
+│           ├── mpsuperuser.bson
+│           ├── mpsuperuser.metadata.json
+│           ├── mpuserslifetime.bson
+│           ├── mpuserslifetime.metadata.json
+│           ├── roles.bson
+│           ├── roles.metadata.json
+│           ├── system.indexes.bson
+│           ├── users.bson
+│           └── users.metadata.json
+├── public
+│   ├── fonts
+│   │   ├── glyphicons-halflings-regular.eot
+│   │   ├── glyphicons-halflings-regular.svg
+│   │   ├── glyphicons-halflings-regular.ttf
+│   │   ├── glyphicons-halflings-regular.woff
+│   │   └── glyphicons-halflings-regular.woff2
+│   ├── googleae2312f27ad7fc5e.html
+│   ├── logo.png
+│   ├── meteorpress
+│   │   ├── apidocs
+│   │   ├── examples
+│   │   │   ├── audio
+│   │   │   │   ├── example-audio-1.wav
+│   │   │   │   ├── example-audio-2.wav
+│   │   │   │   └── example-narrated.wav
+│   │   │   ├── files
+│   │   │   └── images
+│   │   │       ├── example-image-1-huge.png
+│   │   │       ├── example-image-1-large.png
+│   │   │       ├── example-image-1.png
+│   │   │       ├── example-image-1-small.png
+│   │   │       └── example-image-1-square.png
+│   │   ├── images
+│   │   │   ├── blanks
+│   │   │   │   └── user-unknown.png
+│   │   │   ├── icons
+│   │   │   │   ├── meetup.png
+│   │   │   │   └── meteor.png
+│   │   │   ├── install
+│   │   │   │   ├── meteorpress-install-configure-google-analytics.png
+│   │   │   │   ├── meteorpress-install-configure-kadira.png
+│   │   │   │   ├── meteorpress-install-configure-login-keys.png
+│   │   │   │   ├── meteorpress-install-create-super-user.png
+│   │   │   │   ├── meteorpress-install-default-content.png
+│   │   │   │   ├── meteorpress-install-failure.png
+│   │   │   │   ├── meteorpress-install-success.png
+│   │   │   │   ├── meteorpress-install-welcome.png
+│   │   │   │   └── meteorpress-install-your-system-configuration.png
+│   │   │   └── logos
+│   │   │       └── meteorpress.png
+│   │   ├── themes
+│   │   │   ├── bootstrap-meteorpress
+│   │   │   ├── bootstrap-vanilla
+│   │   │   ├── earlgrey
+│   │   │   ├── frenchroast
+│   │   │   ├── google-material
+│   │   │   ├── google-material-idometeor
+│   │   │   ├── meteorpress.js
+│   │   │   ├── monster
+│   │   │   └── snow
+│   │   └── uploads
+│   │       ├── audio
+│   │       ├── images
+│   │       ├── other
+│   │       ├── pdf
+│   │       └── video
+│   ├── meteorpress.png
+│   └── tempdash.png
+├── README.md
+└── scripts
+    └── install.sh
+
+65 directories, 242 files

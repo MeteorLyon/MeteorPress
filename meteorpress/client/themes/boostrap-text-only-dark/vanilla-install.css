@@ -1,0 +1,82 @@
+body {
+    text-align: center;
+}
+#mp-installer,
+.mp-installer {
+    text-align: left;
+}
+.mp-install-help-content {
+    background-color: black;
+    color: white;
+    display: none;
+    height: 100%;
+    left: 0px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 99;
+}
+
+.mp-installer .mp-form-help {
+    display: none;
+    font-size: .9em;
+    font-style: italic;
+    margin-bottom: 2em;
+}
+
+.mp-installer .list-unstyled {
+    list-style: none;
+}
+
+.mp-installer .fa {
+    margin-left: .5em;
+    vertical-align: top;
+}
+
+.mp-installer .fa-flag {
+   color: red;
+}
+
+.mp-installer .fa-flag-checkered {
+   color: green;
+}
+
+.mp-installer .invisible {
+    opacity: 0;
+}
+
+.mp-installer .vert-center {
+    background-color: white;
+    border-radius: 1em;
+    color: black;
+    margin: 1em auto;
+    max-width: 30em;
+    padding: 1em 2em;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.mp-installer p {
+    margin: 1.5em auto;
+}
+
+.mp-installer p::first-letter {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.mp-installer .btn {
+    border-radius: 0px;
+    display: inline;
+}
+
+.mp-installer .btn-group {
+    margin: 2em auto;
+}
+
+.mp-installer .form-group i {
+    float: right;
+}
+
+

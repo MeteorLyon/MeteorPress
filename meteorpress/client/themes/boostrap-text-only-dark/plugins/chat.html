@@ -1,0 +1,23 @@
+<template name="mpChat">
+
+<form id="chat">
+
+    <div id="chat-lines" class="form-control">
+        {{#each lines}}
+            <div class="chat-line">
+                {{#if isAdmin}}
+                    <span class="chat-remove">&times;</span>
+                {{/if}}
+                <span class="chat-username">{{username}}: </span>
+                <span class="chat-text">{{line}}</span>
+                <br />
+                <span class="chat-moment">{{moment}}</span>
+            </div>
+        {{/each}}
+    </div>
+
+    <input id="chat-input" class="form-control" type="text" value="{{prompt}}" />
+
+</form>
+
+</template>

@@ -1,0 +1,770 @@
+<template name="mpInstallWelcome">
+
+{{!--  Normally, I organize my files alphabetically, but this
+        and its complimentary hooks are in procedural order --}}
+
+    <div class="mp-installer container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <img src="/meteorpress/images/install/meteorpress-install-welcome.png"
+                    alt="Welcome to #MeteorPress"
+                    title="Welcome to #MeteorPress" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <button type="button" id="mp-install-welcome-next" class="btn btn-primary" data-toggle="">
+                    Continue
+                </button>
+            </div>
+        </div>
+        <div class="row text-left">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6">
+                <p>
+                    Thank you for selecting #MeteorPress as your real-time, web based,
+                    content management system.  Made with all the love and attention to
+                    detail one would expect from a #MeteorJS project, it is my
+                    sincere hope that you enjoy using this software as much as I
+                    enjoyed creating it.
+                </p>
+                <p>
+                    Following are several simple screens that will help you customize 
+                    your installation so that you may begin entering amazing content!
+                    It may not be a 'one-click-installer,' but you won't have to
+                    spend hours trying to add basic functionality afterwards either. :)
+                </p>
+                <p>
+                    - @iDoMeteor
+                </p>
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+    </div>
+
+</template>
+
+
+
+<template name="mpInstallSuperUser">
+
+
+    <div class="mp-installer container">
+        <div class="row">
+            <div class="text-center">
+                <img src="/meteorpress/images/install/meteorpress-install-create-super-user.png"
+                    alt="Welcome to #MeteorPress"
+                    title="Welcome to #MeteorPress" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="text-center">
+                <button type="button" id="mp-install-super-user-back" class="btn btn-primary">
+                    Back
+                </button>
+                <button type="button" id="mp-install-super-user-next" class="btn btn-primary" data-toggle="">
+                    Save & Continue
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6">
+                <p>
+                    As the installer of this copy of #MeteorPress, you get the proud honor
+                    of configuring the super user account!
+                </p>
+                <strong>Super Users:</strong>
+                <ul>
+                    <li>Will have full access to the entire system</li>
+                    <li>Can add & remove other super users</li>
+                    <li>Can only be modified or removed by other super users</li>
+                    <li>There must always be at least one</li>
+                </ul>
+                <p>
+                    Simply enter your name, email address and password below and click
+                    'Next' to continue.  You will not be able to return to this screen
+                    for corrections.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6">
+                <form id="mp-install-super-user-form">
+                    <div class="form-group">
+                        <label for="username" class="control-label">Username</label>
+                        <input name="username" id="mp-install-username" class="mp-fc-required form-control" type="text" /> 
+                        <div class="mp-form-help">A string with only letters, numbers and underscores, 15 or less characters length</div>
+                    </div>    
+                    <div class="form-group">
+                        <label for="email" class="control-label">Email</label>
+                        <input name="email" id="mp-install-email" class="mp-fc-required form-control" type="text" /> 
+                        <div class="mp-form-help">A valid email address</div>
+                    </div>    
+                    <div class="form-group">
+                        <label for="password" class="control-label">Password</label>
+                        <input name="password" id="mp-install-password" class="mp-fc-required form-control" type="password" /> 
+                        <div class="mp-form-help">String without space between 8 and 255 characters in length</div>
+                    </div>    
+                    <div class="form-group">
+                        <label for="password-confirm" class="control-label">Confirm Password</label>
+                        <input name="password-confirm" id="mp-install-password-confirm" class="mp-fc-required form-control" type="password" /> 
+                        <div class="mp-form-help">Must match previous</div>
+                    </div>    
+                    <div class="form-group">
+                        <label for="imageURL" class="control-label">Image url</label>
+                        <input name="imageURL" id="mp-install-image-url" class="mp-fc-optional form-control" type="text" /> 
+                        <div class="mp-form-help">A valid URL which is a PNG, JPG or GIF image for your profile</div>
+                    </div>    
+                </form>
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+    </div>
+
+
+</template>
+
+
+
+<template name="mpInstallLoginKeys">
+
+    <div class="mp-installer container">
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6">
+                <img src="/meteorpress/images/install/meteorpress-install-configure-login-keys.png"
+                    alt="Welcome to #MeteorPress"
+                    title="Welcome to #MeteorPress" />
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6 text-center">
+                <button type="button" id="mp-install-login-keys-next" class="btn btn-primary">
+                    Save & Continue
+                </button>
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6">
+                <p>
+                    #MeteorPress is pleased to offer you and your visitors the opportunity
+                    to login swiftly and easily with the most popular services.  
+                </p>
+                <p>
+                    While this requires a few minutes to set up (if you waited till now), 
+                    it will greatly increate the rate of registered users for your site and 
+                    the frequency with which they login.  And trust me, you want both of these 
+                    things! :)
+                </p>
+                <p>
+                    If you came to class well prepared, then you can click on each service
+                    you would like to use and simply paste your keys in and hit save.  If not,
+                    click on the button for each service you would like to use and follow the 
+                    very nice instructions the good people @MeteorJS took the time to make for us.
+                </p>
+                <p>
+                    You can always edit these later, easy peasy!  I will automagically 
+                    disable those which you do not configure now so that they won't get 
+                    in the way later.
+                </p>
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1 col-md-2">
+            </div>
+            <div class="col-sm-10 col-md-8 text-center">
+                <p class="text-info">
+                    Click a button for detailed key generation instructions
+                    <br />(I use them!)
+                </p>
+                <div class="btn-group" role="group" aria-label="mp-service-key-instruction-set">
+                    <button type="button" class="btn btn-primary" id="trigger-facebook">Facebook</button>
+                    <button type="button" class="btn btn-primary" id="trigger-github">Github</button>
+                    <button type="button" class="btn btn-primary" id="trigger-google">Google</button>
+                    <button type="button" class="btn btn-primary" id="trigger-meetup">Meetup</button>
+                    <button type="button" class="btn btn-primary" id="trigger-meteor-developer">Meteor</button>
+                    <button type="button" class="btn btn-primary" id="trigger-twitter">Twitter</button>
+                    <button type="button" class="btn btn-primary" id="trigger-weibo">Weibo</button>
+                </div>
+                <p class="text-info">Click a service to expose entry fields
+                    <br />(Not a lot of error checking, try to be accurate :>)
+                </p>
+            </div>
+            <div class="col-sm-1 col-md-2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6 text-center">
+                {{#autoForm 
+                    id              = "mp-install-login-keys-form" 
+                    meteormethod    = "MP.installLoginKeys"
+                    omitFields      = "stamp, revision"
+                    schema          = mpInstallLoginKeysSchema
+                    type            = "method" 
+                }}
+                    <fieldset class="text-center">
+                        <div>
+                            <legend class="mp-install-toggle">Facebook</legend>
+                            <div>
+                                {{> afQuickField name='facebookKey'}}
+                                {{> afQuickField name='facebookSecret'}}
+                            </div>
+                        </div>
+                        <div>
+                            <legend class="mp-install-toggle" >Github</legend>
+                            <div>
+                                {{> afQuickField name='githubKey'}}
+                                {{> afQuickField name='githubSecret'}}
+                            </div>
+                        </div>
+                        <div>
+                            <legend class="mp-install-toggle" >Google</legend>
+                            <div>
+                                {{> afQuickField name='googleKey'}}
+                                {{> afQuickField name='googleSecret'}}
+                            </div>
+                        </div>
+                        <div>
+                            <legend class="mp-install-toggle" >MeetUp</legend>
+                            <div>
+                                {{> afQuickField name='meetupKey'}}
+                                {{> afQuickField name='meetupSecret'}}
+                            </div>
+                        </div>
+                        <div>
+                            <legend class="mp-install-toggle" >Meteor Developer</legend>
+                            <div>
+                                {{> afQuickField name='meteorDeveloperKey'}}
+                                {{> afQuickField name='meteorDeveloperSecret'}}
+                            </div>
+                        </div>
+                        <div>
+                            <legend class="mp-install-toggle" >Twitter</legend>
+                            <div>
+                                {{> afQuickField name='twitterKey'}}
+                                {{> afQuickField name='twitterSecret'}}
+                            </div>
+                        </div>
+                        <div>
+                            <legend class="mp-install-toggle" >Weibo</legend>
+                            <div>
+                                {{> afQuickField name='weiboKey'}}
+                                {{> afQuickField name='weiboSecret'}}
+                            </div>
+                        </div>
+                    </fieldset>
+                {{/autoForm}}
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+    </div>
+    <div id="help-facebook" class="mp-install-help-content">
+        <div class="vert-center">
+            {{>configureLoginServiceDialogForFacebook}}
+        </div>
+    </div>
+    <div id="help-github" class="mp-install-help-content">
+        <div class="vert-center">
+            {{>configureLoginServiceDialogForGithub}}
+        </div>
+    </div>
+    <div id="help-google" class="mp-install-help-content">
+        <div class="vert-center">
+            {{>configureLoginServiceDialogForGoogle}}
+        </div>
+    </div>
+    <div id="help-meetup" class="mp-install-help-content">
+        <div class="vert-center">
+            {{>configureLoginServiceDialogForMeetup}}
+        </div>
+    </div>
+    <div id="help-meteor-developer" class="mp-install-help-content">
+        <div class="vert-center">
+            {{>configureLoginServiceDialogForMeteorDeveloper}}
+        </div>
+    </div>
+    <div id="help-twitter" class="mp-install-help-content">
+        <div class="vert-center">
+            {{>configureLoginServiceDialogForTwitter}}
+        </div>
+    </div>
+    <div id="help-weibo" class="mp-install-help-content">
+        <div class="vert-center">
+            {{>configureLoginServiceDialogForWeibo}}
+        </div>
+    </div>
+
+</template>
+
+
+
+<template name="mpInstallGoogleAnalytics">
+
+    <div class="mp-installer container">
+        <div class="row">
+            <div class="text-center">
+                <img src="/meteorpress/images/install/meteorpress-install-configure-google-analytics.png"
+                    alt="Welcome to #MeteorPress"
+                    title="Welcome to #MeteorPress" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6 text-center">
+                <p>&nbsp;</p>
+                <button type="button" id="mp-install-google-analytics-back" class="btn btn-primary">
+                    Back
+                </button>
+                <button type="button" id="mp-install-google-analytics-next" class="btn btn-primary" data-toggle="">
+                    Save & Continue
+                </button>
+                <p>&nbsp;</p>
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6">
+                <p>
+                    No web site is complete without Google Analytics, right?
+                </p>
+                <p>
+                    If you are going to deploy this site publicly, and already have your
+                    GA set up, just paste your keys right in!  If not, visit http://google.com/analytics
+                    to get started.  It's pretty straightforward, but I intend to provide more
+                    instructions soon just in case.
+                </p>
+                <p>
+                    If you are just running this locally, are happy with #MeteorPress dashboard stats,
+                    or utilize some other analytics service.. you can happily skip this and do it
+                    later.  It really only makes sense on production deployments.
+                    <br />(It should work on localhost anyway)
+                </p>
+                <p>
+                    This is a good opportunity to point out, while we're on the topic.. that #MeteorPress
+                    uses GA's new <strong>live</strong> analyzer, providing up-to-the-second views of your
+                    traffic.  It's really some extra awesome sauce on top of all this Meteor cake.
+                </p>
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" id="trigger-instructions">Instructions</button>
+                </div>
+                <form id="mp-install-google-analytics-form">
+                    <div class="form-group">
+                        <label class="control-label" for="mp-install-ga-key">Key</label>
+                        <input id="mp-install-ga-key" class="form-control" name="key" type="text">    
+                    </div>    
+                 </form>
+            </div>
+        </div>
+    </div>
+    <div id="help-google" class="mp-install-help-content">
+        <div class="vert-center">
+            <p>Coming soon..</p>
+        </div>
+    </div>
+
+</template>
+
+
+
+<template name="mpInstallKadira">
+
+    <div class="mp-installer container">
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6 text-center">
+                <img src="/meteorpress/images/install/meteorpress-install-configure-kadira.png"
+                    alt="Welcome to #MeteorPress"
+                    title="Welcome to #MeteorPress" />
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6">
+                <p>&nbsp;</p>
+                <button type="button" id="mp-install-kadira-back" class="btn btn-primary">
+                    Back
+                </button>
+                <button type="button" id="mp-install-kadira-next" class="btn btn-primary">
+                    Save & Continue
+                </button>
+                <p>&nbsp;</p>
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6">
+                <p>
+                    #MeteorPress comes chock full of Meteor awesome and Kadira
+                    let's you watch it all happen.  Kadira is a top notch tool
+                    for tracking and monitoring software performance, complete
+                    with amazing real-time dashboards featuring colorful and
+                    meaningful visualizations.
+                </p>
+                <p>
+                    Using Kadira is not required so you may freely skip this step,
+                    but.. it is super fun to watch, although you should probably
+                    disable it for normal use on a production level deployment.
+                </p>
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6">
+                <form id="mp-install-kadira-form">
+                    <div class="form-group">
+                        <label class="control-label" for="mp-install-kadira-key">Key</label>
+                        <input class="form-control" id="mp-install-kadira-key" name="key" type="text">    
+                    </div>    
+                    <div data-required="true" class="form-group">
+                        <label class="control-label" for="mp-install-kadira-secret">Secret</label>
+                        <input class="form-control" id="mp-install-kadira-secret" name="secret" type="text">    
+                    </div>    
+                </form>
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+    </div>
+
+
+</template>
+
+
+
+<template name="mpInstallConfiguration">
+
+    <div class="mp-installer container">
+
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6 text-center">
+                <img src="/meteorpress/images/install/meteorpress-install-your-system-configuration.png"
+                    alt="Welcome to #MeteorPress"
+                    title="Welcome to #MeteorPress" />
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6 text-center">
+                <p>&nbsp;</p>
+                <button type="button" id="mp-install-configuration-back" class="btn btn-primary">
+                    Back
+                </button>
+                <button type="button" id="mp-install-configuration-next" class="btn btn-primary">
+                    Save & Continue
+                </button>
+                <p>&nbsp;</p>
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6 text-left">
+                <p>
+                    The following three columns are ranked by order of importance,
+                    the only things you might really want to worry about right
+                    now are in the left-most column (or the top-most fields
+                    if you are on a small device).
+                </p>
+                <p>
+                    Hover over a field or label for a description, or refer to
+                    the <a href="http://meteorpress.org/docs">documentation</a>.
+                </p>
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+        <div class="row" id="mp-installer-configuration-form">
+            {{#autoForm 
+                collection      = collectionConfiguration
+                doc             = defaultConfigObject
+                id              = "mp-install-configuration-form" 
+                omitFields      = "stamp, revision"
+                type            = "method" 
+            }}
+                <div class="col-sm-4 col-md-4">
+                    <fieldset>
+                        <legend>You should totally change these</legend>
+                        {{> afQuickField name='siteTitle' placeholder=siteTitle}}
+                        {{> afQuickField name='siteTagLine' placeholder=siteTagLine}}
+                        {{> afQuickField name='siteDescription' placeholder=siteDescription rows=3}}
+                        {{> afQuickField name='webmasterEmail' placeholder=webmasterEmail}}
+                    </fieldset>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <fieldset>
+                        <legend>You may want to change these from time to time</legend>
+                        {{> afQuickField name='debug'}}
+                        {{> afQuickField name='enableAutoLoad'}}
+                        {{> afQuickField name='enableAutoReader'}}
+                        {{> afQuickField name='enableBanWords'}}
+                        {{> afQuickField name='enableBanWordsReplace'}}
+                        {{> afQuickField name='enableFeatured'}}
+                        {{> afQuickField name='enableGoogleAnalytics' value=enableGoogleAnalytics}}
+                        {{> afQuickField name='enableKadira' value=enableKadira}}
+                        {{> afQuickField name='enableLogin'}}
+                        {{> afQuickField name='enableLoginWithFacebook' value=enableLoginWithFacebook}}
+                        {{> afQuickField name='enableLoginWithGithub' value=enableLoginWithGithub}}
+                        {{> afQuickField name='enableLoginWithGoogle' value=enableLoginWithGoogle}}
+                        {{> afQuickField name='enableLoginWithMeetup' value=enableLoginWithMeetup}}
+                        {{> afQuickField name='enableLoginWithMeteorDeveloper' value=enableLoginWithMeteorDeveloper}}
+                        {{> afQuickField name='enableLoginWithPassword' value=true disabled=true}}
+                        {{> afQuickField name='enableLoginWithTwitter' value=enableLoginWithTwitter}}
+                        {{> afQuickField name='enableLoginWithWeibo' value=enableLoginWithWeibo}}
+                        {{> afQuickField name='enableMPMarkDown'}}
+                        {{> afQuickField name='enableMaintenanceMode'}}
+                        {{> afQuickField name='enableNews'}}
+                        {{> afQuickField name='enablePages'}}
+                        {{> afQuickField name='enablePlugins'}}
+                        {{> afQuickField name='enablePosts'}}
+                        {{> afQuickField name='enableSticky'}}
+                        {{> afQuickField name='enableThemes'}}
+                        {{> afQuickField name='enableTwitter'}}
+                    </fieldset>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <fieldset>
+                        <legend>You probably don't need to mess with these :)</legend>
+                        {{> afQuickField name='limitGetters'}}
+                        {{> afQuickField name='limitPublish'}}
+                        {{> afQuickField name='logLevel'}}
+                        <br />
+                    </fieldset>
+                </div>
+            {{/autoForm}}
+        </div>
+
+    </div>
+
+</template>
+
+
+
+<template name="mpInstallDefaultContent">
+
+    <div class="mp-installer container">
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6 text-center">
+                <img src="/meteorpress/images/install/meteorpress-install-default-content.png"
+                    alt="Welcome to #MeteorPress"
+                    title="Welcome to #MeteorPress" />
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6 text-center">
+                <p>&nbsp;</p>
+                <button class="btn btn-primary" id="mp-install-default-content-back">
+                    Back
+                </button>
+                <button id="mp-install-default-content-yes" class="btn btn-primary">
+                    Do me up
+                </button>
+                <button class="btn btn-primary" id="mp-install-default-content-no">
+                    Clean slate
+                </button>
+                <p>&nbsp;</p>
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6 text-center">
+                <p>
+                    Almost finished, patient bear! Just one more thing..
+                </p>
+                <p>
+                    Shall I install the default content set for you, or
+                    would you like to start with a clean slate?
+                </p>
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+    </div>
+
+
+</template>
+
+
+
+<template name="mpInstallSuccess">
+
+
+    <div class="mp-installer container">
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6 text-center">
+                <img src="/meteorpress/images/install/meteorpress-install-success.png"
+                    alt="Welcome to #MeteorPress"
+                    title="Welcome to #MeteorPress" />
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6 text-center">
+                <button type="button" id="mp-install-success" class="btn btn-primary" data-toggle="">
+                    Let me see!
+                </button>
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6 text-left">
+                <p>
+                    Hot biscuits & gravy, you made it!  I'm super happy you've installed
+                    my software, it would be really nice if you found time to give me some
+                    feedback or log a testimonial on our web site if you like it... or don't!
+                </p>
+                <p>
+                    Don't forget to check out these awesome links!
+                    <ul>
+                        <li>
+                            <a href="#">#MeteorPress Documentation</a>
+                        </li>
+                        <li>
+                            <a href="#">#MeteorPress Forum on Forums.Meteor.com? *cough*</a>
+                        </li>
+                        <li>
+                            <a href="#">#MeteorPress Issue Tracker</a>
+                        </li>
+                        <li>
+                            <a href="#">#MeteorPress Press Room</a>
+                        </li>
+                        <li>
+                            <a href="#">#MeteorPress Testimonials</a>
+                        </li>
+                        <li>
+                            <a href="#">#MeteorPress Wiki</a>
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    If you adopt and enjoy #MeteorPress, you could extend a token of your
+                    appreciation by contributing to my <a href="#">donation page</a> or
+                    <a href="#">Github repository</a>.
+                </p>
+                <p>
+                    - @iDoMeteor
+                </p>
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+    </div>
+
+
+</template>
+
+
+
+<template name="mpInstallFailure">
+
+
+    <div class="mp-installer container">
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6 text-center">
+                <img src="/meteorpress/images/install/meteorpress-install-failure.png"
+                    alt="Welcome to #MeteorPress"
+                    title="Welcome to #MeteorPress" />
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6 text-center">
+                <button type="button" id="mp-install-failure" class="btn btn-primary" data-toggle="">
+                    Try Again
+                </button>
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-md-3">
+            </div>
+            <div class="col-sm-8 col-md-6 text-left">
+                <p>
+                    I made this screen with the sincere hope that you would never see this screen,
+                    but since you have.. wouldn't you take a moment to contact me
+                    and let me know what happened? :)
+                </p>
+                <p>
+                    Give'er another shot, maybe it was a fluke?
+                </p>
+                <p>
+                    - @iDoMeteorPress on Twitter, iDoMeteor Gmail or http://MeteorPress.org/bugs
+                </p>
+            </div>
+            <div class="col-sm-2 col-md-3">
+            </div>
+        </div>
+    </div>
+
+
+</template>
