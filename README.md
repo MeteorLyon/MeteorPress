@@ -33,7 +33,6 @@ I shall love them both equally, forever (or until I move into my 2045 avatar!). 
 Beta three is quite stable right now, but the customized page editor is not complete and does not save.  The first two betas worked well with auto-forms, current mission is to finish the page editor.  The file structure is still in very beta mode. :>
 
 * [Main Site](http://meteorpress.org) (in maintenance mode atm)
-* [Demo Site](http://demo.meteorpress.org) (resets daily, go ahead and install it!)
 * [Trello development board](https://trello.com/b/cMAulFo4/development)
 
 * Installer works (/install).
